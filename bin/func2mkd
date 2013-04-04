@@ -1,0 +1,55 @@
+#!/usr/bin/env perl
+#
+#   Generate a markdown file per function signature in STDIN
+#
+#   USAGE: func2mkd [-f|--force] [<function signature> ...]
+#
+#
+#   -f or --force: overwrite existing files.  THIS WILL DESTROY ANY WORK DONE AFTERWARDS.
+
+use strict;
+use Getopt::Long;
+
+my $docdir = "/home/jcarter/ditool/didoc";
+
+my $force = '';
+
+GetOptions (
+    'force' => \$force
+);
+
+print "Building markdown from code..\n";
+my @sigs = <>;
+my $count = 0;
+for my $sig (@sigs){
+    chomp $sig;
+    my ($name) = ($sig =~ /^(\S+)\s*\(/);
+    $name =~ s/([a-z])([A-Z])/\1_\2/g;
+    $name = lc $name;
+    my $filename = "$docdir/$name.mkd";
+    print "$filename\n"; 
+
+    if ( -e $filename and !$force ) {
+        print "file already exists.  Skipping..\n";
+        next;
+    };
+
+    my $file;
+    if (!open $file, ">", "$filename") { 
+        warn "Can't open $filename: $!\nSkipping..\n"; 
+        next;
+    };
+
+    print $file <<END;
+@{[ ucfirst $name ]}
+===
+---
+$sig
+END
+
+    close $file;
+    $count++;
+
+};
+
+print "Markdown creation finished.  $count files written.\n";

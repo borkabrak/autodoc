@@ -1,0 +1,40 @@
+#!/usr/bin/env perl
+# Convert markdown to HTML for the DiTool Documentation Project
+#   -Creates an *.html file for each input file
+#
+#   USAGE: $0 *.mkd
+
+use strict;
+use Text::Markdown 'markdown';
+
+foreach (@ARGV){
+
+	print "Converting $_..\n";
+
+    open my $input, $_;
+    my $text = join '', <$input>;
+    close $input;
+    
+    my ($basename,undef) = /(.*)(\..*)$/;
+
+    open my $output, ">$basename.html";
+    my $html = <<"HTML";
+<!doctype html> 
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="didoc.css" />
+        <title>DiTool Documentation -- @{[ ucfirst $basename ]}</title>
+    </head>
+    <body>
+        <div class='didoc' id='$basename'>
+        @{[markdown(
+            $text
+        )]}
+        </div>
+    </body>
+</html>
+HTML
+    print $output $html;
+    close $output;
+}
+

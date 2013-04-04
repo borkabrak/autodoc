@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+#   Automatically generate a markdown file for every 'class' in the codebase
+
+codedir="/cygdrive/c/TFS/Data Intelligence Tool/src/ditool/DEV"
+
+# Find all control declarations (indicated, we ASSUME, by the word 'function',
+# some whitespace, and a capital letter.
+grep -hP --exclude jquery.js --exclude cufon.js --exclude raphael.js "^\s*function\s+[A-Z]" $codedir/* |
+
+# Isolate the function signature (name and parameter list)
+sed 's/function\s\+//; s/{//' | 
+
+./bin/func2mkd $1;
