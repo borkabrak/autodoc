@@ -1,0 +1,4 @@
+Global_map
+===
+---
+GlobalMap(parent, id, coords, attr, reader, colOffset, iQuery) 

@@ -1,0 +1,4 @@
+Control_array
+===
+---
+ControlArray(parent, id, coords, attr, count, cols, rows, horz, span) 

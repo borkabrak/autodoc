@@ -1,0 +1,4 @@
+Icon_array
+===
+---
+IconArray(parent, id, coords, attr, items, iw, ih, cols, rows, horz, client, func) 

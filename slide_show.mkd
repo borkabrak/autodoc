@@ -1,0 +1,4 @@
+Slide_show
+===
+---
+SlideShow(parent, id, coords, attr, name, count, rate, animate) 

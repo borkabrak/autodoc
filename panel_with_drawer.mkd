@@ -1,0 +1,4 @@
+Panel_with_drawer
+===
+---
+PanelWithDrawer(parent, id, coords, attr, drawer, dwidth, right, inFill, outFill) 

@@ -1,0 +1,4 @@
+Chooser
+===
+---
+Chooser(parent, id, coords, attr, caption, items, iw, ih, cols, span, mode, client, func) 

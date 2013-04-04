@@ -1,0 +1,4 @@
+Control
+===
+---
+Control(parent, id, coords, attr) 

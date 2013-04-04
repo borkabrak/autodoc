@@ -1,0 +1,4 @@
+Multitab
+===
+---
+Multitab(parent, id, coords, attr, tabWidth, just, minw, minh, client, func, func2, inset, pagable) 

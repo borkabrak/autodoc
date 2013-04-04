@@ -1,0 +1,4 @@
+Button_array
+===
+---
+ButtonArray(parent, id, coords, attr, items, iw, ih, cols, rows, horz, span, client, func) 

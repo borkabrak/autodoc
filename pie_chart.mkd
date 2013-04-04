@@ -1,0 +1,4 @@
+Pie_chart
+===
+---
+PieChart(parent, id, coords, attr, title, col, maxColors, color, reader, iQuery, margin, low, high, format) 

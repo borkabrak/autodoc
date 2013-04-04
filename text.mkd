@@ -1,0 +1,4 @@
+Text
+===
+---
+Text(parent, id, coords, attr, text, lines, just, cy) 

@@ -1,0 +1,23 @@
+body {
+    
+    background-color: #303038;
+}
+
+.didoc {
+    border: solid #202028 0.75em;
+    border-radius: 2em;
+    padding: 1em;
+    background-color: #555;
+    font-family: sans-serif;
+}
+
+.didoc hr {
+    height: 0.5em;
+    border: 0;
+    border-bottom: solid #222 0.25em;
+    border-radius: 0.5em;
+}
+
+.didoc h1, h2, h3, h4, h5, h6 {
+    color: #aaa;
+}

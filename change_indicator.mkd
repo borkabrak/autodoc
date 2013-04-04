@@ -1,0 +1,4 @@
+Change_indicator
+===
+---
+ChangeIndicator(parent, id, coords, attr, zero, rate, value) 

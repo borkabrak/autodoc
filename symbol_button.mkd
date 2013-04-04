@@ -1,0 +1,4 @@
+Symbol_button
+===
+---
+SymbolButton(parent, id, coords, attr, symType, attrSel) 

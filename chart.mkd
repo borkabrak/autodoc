@@ -1,0 +1,4 @@
+Chart
+===
+---
+Chart(parent, id, coords, attr, reader, iQuery, colOffset) 

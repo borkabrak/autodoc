@@ -1,0 +1,4 @@
+Fan_chart
+===
+---
+FanChart(parent, id, coords, attr, title, col, maxcolors, color, reader, iQuery, margin, low, high, format) 

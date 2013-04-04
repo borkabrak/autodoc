@@ -1,0 +1,4 @@
+Control_panel
+===
+---
+ControlPanel(parent, id, coords, attr, schema, reader, client, inset) 

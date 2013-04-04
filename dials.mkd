@@ -1,0 +1,4 @@
+Dials
+===
+---
+Dials(parent, id, coords, attr, caption, config, cols) 
