@@ -9,7 +9,7 @@ neat: build tidy
 
 convert:
 	# Convert the files
-	di_mkd2html *.mkd
+	./bin/di_mkd2html *.mkd
 
 sloppy: build
 	# Publish, but leave converted files in doc directory
