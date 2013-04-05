@@ -1,0 +1,14 @@
+onBuild()
+==============================================================================
+------------------------------------------------------------------------------
+
+onBuild() is an optional function on a control prototype.
+
+If it exists, it's called during Control.build() (which is automatically run
+during [Control.call()](control_call.html)).
+
+Control.build() doesn't pass any parameters to it, so anything it needs
+will have to be attached to the object being built before you do
+`Control.call()`.
+
+*    `//what do you put in this function?`
