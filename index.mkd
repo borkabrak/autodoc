@@ -4,9 +4,11 @@ DiTool Documentation
 
 Developer documentation for the DiTool application.
 
-Recommended
+Recommended Topics
 ------------------------------------------------------------------------------
-[Understanding the coordinate system] (understanding_the_coordinate_system.html)
+[Understanding the coordinate system](understanding_the_coordinate_system.html)
+
+[Open Questions](open_questions.html)
 
 Objects
 ------------------------------------------------------------------------------

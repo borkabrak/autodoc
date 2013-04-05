@@ -19,6 +19,4 @@ object via the [parseCoords](parse_coords.html) method.
 Not to be confused with the actual properties generated on the control by
 parseCoords, [coordinate properties](coordinate_properties.html).
 
-See also [Understanding the coordinate
-system](understanding_the_coordinate_system.html)
-------------------------------------------------------------------------------
+See also [Understanding the coordinate system](understanding_the_coordinate_system.html)

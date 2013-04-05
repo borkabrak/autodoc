@@ -19,10 +19,18 @@ Overview
 ------------------------------------------------------------------------------
 The first important thing to remember is that these coordinates are all
 **relative to the parent**.  There is no concept of absolute placement on the
-page.  This has the useful effect of making the application sort of
-window-agnostic when it comes to scaling, etc.
+page.  This has the effect of making the application sort of window-agnostic
+when it comes to scaling, etc.
 
-*x* and *y* indicate where to place the control within the parent.
+*x* and *y* indicate where to place the control within the parent.  More
+specifically, where to place the *handle point* (cf. *hx* and *hy* below.)
 
-x and y refer to the location (within the parent control) of the point on the
-child specified by hx and hy.
+*h* and *w* indicate the height and width of the child control.  This is a
+normalized value representing the ratio of the child to the parent and ranges
+between 0 and 1.
+
+*hx* and *hy* set the *handle point* for the child.  The handle point is the
+point specified by the *x* and *y* coordinates.  It can be thought of as the
+'origin', if you're into the whole Cartesian thing, man.  The default is
+(0,0), the exact center of the child control.
+

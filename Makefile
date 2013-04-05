@@ -9,7 +9,7 @@ neat: build tidy
 
 convert:
 	# Convert the files
-	./bin/di_mkd2html *.mkd
+	./bin/mkd2html *.mkd
 
 sloppy: build
 	# Publish, but leave converted files in doc directory
@@ -22,6 +22,7 @@ publish:
 	# Publish the files to the web dir
 	cp *.html $(DESTINATION)/
 	cp *.css $(DESTINATION)/
+	cp *.js $(DESTINATION)/
 
 build: convert publish 
 
