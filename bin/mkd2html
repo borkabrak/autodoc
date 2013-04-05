@@ -23,9 +23,15 @@ foreach (@ARGV){
 <html>
     <head>
         <link type="text/css" rel="stylesheet" href="didoc.css" />
+        <script type="text/javascript" src="../scripts/jquery.js"></script>
+        <script type="text/javascript" src="didoc.js"></script>
         <title>DiTool Documentation -- @{[ ucfirst $basename ]}</title>
     </head>
     <body>
+        <span class='nav'>
+            <a href='index.html'>Index</a>
+            <a href='#' class='back'>Back</a>
+        </span>
         <div class='didoc' id='$basename'>
         @{[markdown(
             $text

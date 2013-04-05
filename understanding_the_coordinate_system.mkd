@@ -1,0 +1,28 @@
+Understanding the coordinate system
+==============================================================================
+------------------------------------------------------------------------------
+
+DiTool employs a uniquely designed coordinate system for placing controls.  It
+is put into effect by choosing values for the [coords](coords.html) parameter
+when instantiating a new control.
+
+These properties (and their default values) are:
+
+* x -   0
+* y -   0
+* h -   1
+* w -   1
+* hx -  0
+* hy -  0
+
+Overview
+------------------------------------------------------------------------------
+The first important thing to remember is that these coordinates are all
+**relative to the parent**.  There is no concept of absolute placement on the
+page.  This has the useful effect of making the application sort of
+window-agnostic when it comes to scaling, etc.
+
+*x* and *y* indicate where to place the control within the parent.
+
+x and y refer to the location (within the parent control) of the point on the
+child specified by hx and hy.

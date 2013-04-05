@@ -2,3 +2,13 @@ Control
 ===
 ---
 Control(parent, id, coords, attr) 
+
+Control() is the root object from which all other controls inherit.  Its
+parameters are required for all other object created, as well.
+
+See Also:
+
+* [parent](parent.html)
+* [id](id.html)
+* [coords](coords.html)
+* [attr](attr.html)

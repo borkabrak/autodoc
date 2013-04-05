@@ -1,0 +1,5 @@
+Parent
+==============================================================================
+---
+The 'parent' parameter refers to the parent *control*, and is generally passed
+in as the first argument when creating a control object.

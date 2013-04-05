@@ -2,6 +2,12 @@ DiTool Documentation
 ==============================================================================
 ---
 
+Developer documentation for the DiTool application.
+
+Recommended
+------------------------------------------------------------------------------
+[Understanding the coordinate system] (understanding_the_coordinate_system.html)
+
 Objects
 ------------------------------------------------------------------------------
 

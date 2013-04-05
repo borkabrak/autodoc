@@ -1,0 +1,18 @@
+Coordinate Properties
+==============================================================================
+------------------------------------------------------------------------------
+
+The coordinate properties are a set of properties attached to each object by
+[parseCoords](parse_coords.html):
+
+* x
+* y
+* h
+* w
+* hx
+* hy
+
+They share names with the properties in the [coords](coords.html) parameter,
+but **are not the same thing**.  (That parameter is what you should study to
+understand this.  This page refers to the internal properties of control
+objects that the parameter gets mapped to.)

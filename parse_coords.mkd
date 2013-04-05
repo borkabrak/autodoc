@@ -1,0 +1,7 @@
+parseCoords
+==============================================================================
+------------------------------------------------------------------------------
+
+parseCoords() is a method available on objects created with the Control()
+constructor.  It is called internally by control to generate the
+[coordinate](coords.html) properites on controls.

@@ -1,0 +1,24 @@
+Coords
+==============================================================================
+------------------------------------------------------------------------------
+
+'coords' is typically the third parameter passed when creating a control.  It
+should be an object containing the following properties:
+
+* x
+* y
+* h
+* w
+* hx
+* hy
+
+
+In a properly formed control, these will subsequently be attached to the
+object via the [parseCoords](parse_coords.html) method.
+
+Not to be confused with the actual properties generated on the control by
+parseCoords, [coordinate properties](coordinate_properties.html).
+
+See also [Understanding the coordinate
+system](understanding_the_coordinate_system.html)
+------------------------------------------------------------------------------

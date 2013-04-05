@@ -1,0 +1,8 @@
+Id
+==============================================================================
+------------------------------------------------------------------------------
+
+'id' is typically the second parameter when creating a control.  It will be a
+string, uniquely identifying the created control for reference later on.
+
+cf. ???
