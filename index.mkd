@@ -1,16 +1,20 @@
-DiTool Documentation 
+DITool Documentation 
 ==============================================================================
 ---
 
-Developer documentation for the DiTool application.
+Developer documentation for the DITool application.
 
 Recommended Topics
 ------------------------------------------------------------------------------
+------------------------------------------------------------------------------
 [Understanding the coordinate system](understanding_the_coordinate_system.html)
+
+[Building Controls](BuildingControls.html)
 
 [Open Questions](open_questions.html)
 
 Objects
+------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
 
 * [api](api.html)

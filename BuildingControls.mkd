@@ -4,6 +4,10 @@ Building Controls
 
 Making a new control means integrating it with the way Control.js works.
 
+* include Control.call() at the end of your constructor
 
-Control.call()
-------------------------------------------------------------------------------
+* set the prototype to Control()
+
+* optionally, attach a function to the prototype called
+    '[onBuild](onBuild.html)'.  This is
+    called at the end of Control.build, if it exists.

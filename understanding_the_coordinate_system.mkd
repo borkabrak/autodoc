@@ -2,7 +2,7 @@ Understanding the coordinate system
 ==============================================================================
 ------------------------------------------------------------------------------
 
-DiTool employs a uniquely designed coordinate system for placing controls.  It
+DITool employs a uniquely designed coordinate system for placing controls.  It
 is put into effect by choosing values for the [coords](coords.html) parameter
 when instantiating a new control.
 
