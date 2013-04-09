@@ -2,3 +2,9 @@ Html
 ===
 ---
 HTML(parent,id,coords,content,config)
+
+Allows arbitrary HTML to be inserted into the page.
+
+`content`:  The HTML to insert.  This can be an HTML Object itself, a
+string of HTML code, or a keyword to the app to use a pre-configured
+element (such as "Login" to make a login box on the front page.)

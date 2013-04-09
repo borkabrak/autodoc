@@ -1,5 +1,5 @@
-Building Controls
-==============================================================================
+# Building Controls #
+
 ------------------------------------------------------------------------------
 
 Making a new control means integrating it with the way Control.js works.
@@ -17,12 +17,16 @@ Making a new control means integrating it with the way Control.js works.
     Control.call(this,parent,id,coords, [attr]);
     </pre>
 
-* optionally, attach a function to the prototype called
-    [`onBuild`](onBuild.html).  This is called at the end of `Control.build`,
-    if it exists.
+## Optional functions ##
 
-    <pre>
-    function MyObject.prototype.onBuild(...){
-        // stuff to do after Control.build is finished..
-    }
-    </pre>
+------------------------------------------------------------------------------
+Some functions on a new control are optional -- if they exist, they're called
+in certain circumstances.  These allow you to add control-specific
+functionality, if necessary.  These functions include:
+
+
+*   [`onBuild`](onBuild.html)  Called at the end of `Control.build` (when the
+    control is initially laid out)
+
+*   [`onUpdate`](onUpdate.html)  Called whenever the window layout changes
+    (e.g, resizing, moving)

@@ -28,11 +28,12 @@ foreach (@ARGV){
         <title>DiTool Documentation -- @{[ ucfirst $basename ]}</title>
     </head>
     <body>
-        <span class='nav'>
+        <img src='logo.png' ></img>
+        <span class='nav text'>
             <span class='link'> <a href='#' class='back'><< Back</a> </span>
             <span class='link'> <a href='index.html'>Index</a> </span>
         </span>
-        <div class='didoc' id='$basename'>
+        <div class='didoc text' id='$basename'>
         @{[markdown(
             $text
         )]}

@@ -1,8 +1,18 @@
 body {
     
-    background-color: #2d3030;
+    background-color: #144;
     font-family: sans-serif;
     font-size: 1.1em;
+
+}
+
+img {
+    height: 5em;
+    float: left;
+    position: relative;
+    top: 3em;
+    left: 2em;
+    padding: 3em;
 
 }
 
@@ -20,13 +30,11 @@ div.didoc {
     border: solid #202028 0.75em;
     border-radius: 2em;
     padding: 1em;
-    background-color: #646060;
     margin: 3em;
 }
 
 .nav {
     font-size: 0.8em;
-    background-color: #888;
     padding: 0.5em;
     border-radius: 1em;
     border: solid #202028 0.4em;
@@ -37,7 +45,12 @@ span.nav a {
     margin: 1em;
 }
 
-hr {
+/* Text containers should have some similar characteristics */
+.text {
+    background-color: #787278;
+}
+
+.text hr {
     height: 0.5em;
     border: 0;
     border-bottom: solid #222 0.25em;
@@ -45,5 +58,5 @@ hr {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #aaa;
+    color: #0c1146;
 }
