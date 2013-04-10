@@ -6,18 +6,18 @@ body {
 
 }
 
+/*
 img {
     height: 5em;
     float: left;
     position: relative;
-    top: 3em;
-    left: 2em;
-    padding: 3em;
+    left: 5em;
+    top: 2em;
 
 }
+*/
 
 a, a:visited {
-    color: #061163;
     color: #016;
 }
 
@@ -26,7 +26,7 @@ ul {
     list-style-type: square;
 }
 
-div.didoc {
+.didoc {
     border: solid #202028 0.75em;
     border-radius: 2em;
     padding: 1em;

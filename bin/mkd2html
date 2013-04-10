@@ -28,7 +28,6 @@ foreach (@ARGV){
         <title>DiTool Documentation -- @{[ ucfirst $basename ]}</title>
     </head>
     <body>
-        <img src='logo.png' ></img>
         <span class='nav text'>
             <span class='link'> <a href='#' class='back'><< Back</a> </span>
             <span class='link'> <a href='index.html'>Index</a> </span>
