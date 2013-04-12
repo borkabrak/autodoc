@@ -4,7 +4,8 @@
 
 Making a new control means integrating it with the way Control.js works.
 
-* include `Control.call()` at the end of your constructor:
+* At the end of your constructor, include a call to the object from which you
+  need your control to inherit.  In most cases, this will be 'Control()':
     <pre>
     function MyObject(parent, id, coords, [attr]){
         // blah, blah
@@ -12,7 +13,8 @@ Making a new control means integrating it with the way Control.js works.
     }
     </pre>
 
-* set the prototype to `Control()`:
+* After the constructor function, set the prototype to the inherited-from
+  object:
     <pre>
     Control.call(this,parent,id,coords, [attr]);
     </pre>
