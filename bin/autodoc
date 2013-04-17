@@ -1,0 +1,64 @@
+#!/usr/bin/env perl
+#
+# Analyze the KAML (Ken's Application Markup Language) source for
+# reports, identifying unique elements and all their possible attributes. 
+
+use strict;
+use Text::Markdown 'markdown';
+use Template;
+
+# CONFIG
+my $apifile ="/cygdrive/c/TFS/Data\ Intelligence\ Tool/src/ditool/DEV/api.js";
+my $outdir = '/home/jcarter/ditool/didoc/di_reports';
+my $template_name = '/home/jcarter/ditool/didoc/bin/html_template.ttk';
+
+#-- BEGIN ----------------------------------------------------------------------------
+print "Creating documentation..\n";
+
+# Set up the template object
+my $ttk = Template->new;
+open my $template, "<", $template_name or die "Can't open $template_name:$!";
+my $template_text = join '', <$template>;
+close $template;
+
+foreach my $element (@{ find_in_file( qr/(di_\w+)/i, $apifile) }){
+
+    my $docfile_name = "$outdir/$element.mkd";
+    my $htmlfile_name = "$outdir/$element.html";
+
+    # open/create the documentation file.  
+    print "$element..\n";
+    open my $docfile, (-e $docfile_name ? "+<" : "+>" ), $docfile_name 
+        or die "Can't open $docfile_name:$!";
+
+    # convert documentation to html
+    my $content = markdown(join '', <$docfile>);
+    close $docfile;
+
+    # assemble and write the final HTML file
+    open my $htmlfile, ">", $htmlfile_name 
+        or die "Can't open $htmlfile_name:$!";
+    $ttk->process( \$template_text, {
+            element_name => $element,
+            content => $content
+        },
+        $htmlfile
+    ) or die "Error processing template:" . $ttk->error();
+
+    close $htmlfile;
+}
+
+print "..Done\n";
+#-- END ----------------------------------------------------------------------------
+
+sub find_in_file {
+    # Returns a (reference to a) sorted, unique array of all matches for $regex
+    # on the contents of $file
+    my ($regex, $file) = @_;
+    open (INPUT, "<", $file) or die "Can't open '$file':$!";
+    my $input = join ' ' , <INPUT>;
+    close INPUT;
+    my @output = sort keys %{{ map { lc($_) => 1 } $input =~ /$regex/g }};
+    print scalar @output . " elements found.\n";
+    return \@output;
+}
