@@ -1,7 +1,8 @@
 #!/usr/bin/env perl
 #
-# Analyze the KAML (Ken's Application Markup Language) source for
-# reports, identifying unique elements and all their possible attributes. 
+# Analyze the KAML (Ken's Application Markup Language) source code, creating an
+# HTML document for every element, including content already written for each
+# element in its document
 
 use strict;
 use Text::Markdown 'markdown';
