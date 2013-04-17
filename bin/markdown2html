@@ -17,7 +17,11 @@ foreach (@ARGV){
     
     my ($basename,undef) = /(.*)(\..*)$/;
 
-    open my $output, ">$basename.html";
+	my $outfile = "$basename.html";
+
+	next if -e $outfile;
+
+    open my $output, ">$outfile";
     my $html = <<"HTML";
 <!doctype html> 
 <html>

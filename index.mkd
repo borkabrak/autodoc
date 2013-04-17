@@ -4,8 +4,8 @@ DITool Documentation
 
 Developer documentation for the DITool application.
 
-Recommended Topics
-------------------------------------------------------------------------------
+## Recommended Topics
+
 ------------------------------------------------------------------------------
 [Understanding the coordinate system](understanding_the_coordinate_system.html)
 
@@ -13,8 +13,10 @@ Recommended Topics
 
 [Open Questions](open_questions.html)
 
-Objects
-------------------------------------------------------------------------------
+## Javascript 
+
+### Objects
+
 ------------------------------------------------------------------------------
 * [api](api.html)
 * [arranger](arranger.html)

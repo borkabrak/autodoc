@@ -1,21 +1,10 @@
 body {
     
-    background-color: #144;
+    background: -webkit-gradient(linear, left top, right bottom, from(#154), to(#465));
     font-family: sans-serif;
     font-size: 1.1em;
 
 }
-
-/*
-img {
-    height: 5em;
-    float: left;
-    position: relative;
-    left: 5em;
-    top: 2em;
-
-}
-*/
 
 a, a:visited {
     color: #016;
@@ -27,11 +16,11 @@ ul {
 }
 
 .didoc {
-    border: solid #202028 0.75em;
+    border: solid #22363f 0.75em;
     border-radius: 2em;
     padding: 1em;
     margin: 3em;
-    background: -webkit-gradient(linear, left top, right bottom, to(#585258), from(#787278));
+    background: -webkit-gradient(linear, left top, right bottom, to(#585258), from(#807278));
 }
 
 .nav {
