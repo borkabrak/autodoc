@@ -1,7 +1,7 @@
 # Build the ditool documentation site
 
 DESTINATION=/srv/www/htdocs/didoc
-REPORTS_DIR=reports
+REPORTS_DIR=di_reports
 
 # Default build is first one -- neat
 

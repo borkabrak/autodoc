@@ -10,7 +10,7 @@ use Data::Dumper;
 
 # config
 my $apifile ="/cygdrive/c/TFS/Data\ Intelligence\ Tool/src/ditool/DEV/api.js";
-my $outdir = '/home/jcarter/ditool/didoc/reports';
+my $outdir = '/home/jcarter/ditool/didoc/di_reports';
 
 my $elements = find_in_file( qr/(di_\w+)/i, $apifile);
 print scalar @$elements . " elements found.\n";
