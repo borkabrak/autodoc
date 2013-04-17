@@ -1,52 +1,52 @@
 body {
     
-    background: -webkit-gradient(linear, left top, right bottom, from(#154), to(#465));
+    background-color: #415658;
     font-family: sans-serif;
     font-size: 1.1em;
 
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #0c1146;
+}
+
+ul {
+    list-style-type: square;
 }
 
 a, a:visited {
     color: #016;
 }
 
-
-ul {
-    list-style-type: square;
+.text-container {
+    background-color: #928b94;
+    background: -webkit-gradient(linear, left top, right bottom, to(#686268), from(#807278));
+    border: solid #222 0.75em;
 }
 
-.didoc {
-    border: solid #22363f 0.75em;
-    border-radius: 2em;
-    padding: 1em;
-    margin: 3em;
-    background: -webkit-gradient(linear, left top, right bottom, to(#585258), from(#807278));
-}
-
-.nav {
-    font-size: 0.8em;
-    padding: 0.5em;
-    border-radius: 1em;
-    border: solid #202028 0.4em;
-    margin: 3em;
-}
-
-span.nav a {
-    margin: 1em;
-}
-
-/* Text containers should have some similar characteristics */
-.text {
-    background-color: #787278;
-}
-
-.text hr {
+.text-container hr {
     height: 0.5em;
     border: 0;
     border-bottom: solid #222 0.25em;
     border-radius: 0.5em;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    color: #0c1146;
+
+.content {
+    border-radius: 2em;
+    padding: 1em;
+    margin: 3em;
 }
+
+.nav-menu {
+    font-size: 0.8em;
+    padding: 0.5em;
+    border-radius: 1em;
+    border-width: 0.4em;
+    margin: 3em;
+}
+
+.nav-menu a {
+    margin: 1em;
+}
+
