@@ -1,8 +1,7 @@
 #!/usr/bin/env perl
 #
-# Analyze the KAML (Ken's Application Markup Language) source code, creating an
-# HTML document for every element, including content already written for each
-# element in its document
+# Create an HTML document for every KAML element found in the source code,
+# including markdown content already written for each element.
 
 use strict;
 use Text::Markdown 'markdown';
@@ -10,7 +9,7 @@ use Template;
 
 # CONFIG
 my $apifile ="/cygdrive/c/TFS/Data\ Intelligence\ Tool/src/ditool/DEV/api.js";
-my $outdir = '/home/jcarter/ditool/didoc/di_reports';
+my $outdir = '/home/jcarter/ditool/didoc';
 my $template_name = '/home/jcarter/ditool/didoc/bin/html_template.ttk';
 
 #-- BEGIN ----------------------------------------------------------------------------
@@ -27,7 +26,7 @@ foreach my $element (@{ find_in_file( qr/(di_\w+)/i, $apifile) }){
     my $docfile_name = "$outdir/$element.mkd";
     my $htmlfile_name = "$outdir/$element.html";
 
-    # open/create the documentation file.  
+    # open/create the documentation file  
     print "$element..\n";
     open my $docfile, (-e $docfile_name ? "+<" : "+>" ), $docfile_name 
         or die "Can't open $docfile_name:$!";

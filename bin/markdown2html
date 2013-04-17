@@ -1,50 +1,39 @@
 #!/usr/bin/env perl
 # Convert markdown to HTML for the DiTool Documentation Project
-#   -Creates an *.html file for each input file
+#   -Creates an *.html file for each input file that doesn't already have one
 #
 #   USAGE: $0 *.mkd
 
 use strict;
 use Text::Markdown 'markdown';
+use Template;
 
+# CONFIG
+my $template_file = "/home/jcarter/ditool/didoc/bin/html_template.ttk";
+
+my $tt = Template->new;
 foreach (@ARGV){
-
 	print "Converting $_..\n";
 
-    open my $input, $_;
-    my $text = join '', <$input>;
-    close $input;
-    
+    # Get HTML file name
     my ($basename,undef) = /(.*)(\..*)$/;
-
 	my $outfile = "$basename.html";
-
 	next if -e $outfile;
 
+    # Get contents of markdown file
+    open my $input, $_;
+    my $content = join '', <$input>;
+    close $input;
+
     open my $output, ">$outfile";
-    my $html = <<"HTML";
-<!doctype html> 
-<html>
-    <head>
-        <link type="text/css" rel="stylesheet" href="didoc.css" />
-        <script type="text/javascript" src="../scripts/jquery-1.9.1.js"></script>
-        <script type="text/javascript" src="didoc.js"></script>
-        <title>DiTool Documentation -- @{[ ucfirst $basename ]}</title>
-    </head>
-    <body>
-        <span class='nav-menu text-container'>
-            <span class='link'> <a href='#' class='back'><< Back</a> </span>
-            <span class='link'> <a href='index.html'>Index</a> </span>
-        </span>
-        <div class='content text-container' id='$basename'>
-        @{[markdown(
-            $text
-        )]}
-        </div>
-    </body>
-</html>
-HTML
-    print $output $html;
+    # Assemble and write HTML
+    $tt->process($template_file, {
+            element_name => $basename,
+            content => $content
+        },
+        $output
+    ) or die "Template Error: " . $tt->error();
+
     close $output;
 }
 
