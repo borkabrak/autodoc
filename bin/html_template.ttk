@@ -8,7 +8,7 @@
     </head>
     <body>
         <span class='nav-menu text-container'>
-            <span class='link'> <a href='#' class='back'><< Back</a> </span>
+            <span class='link'> <a href='#' class='back'>&lt;&lt; Back</a> </span>
             <span class='link'> <a href='index.html'>Index</a> </span>
         </span>
         <div class='content text-container'>

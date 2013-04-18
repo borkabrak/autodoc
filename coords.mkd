@@ -7,8 +7,8 @@ should be an object containing the following properties:
 
 * x
 * y
-* h
 * w
+* h
 * hx
 * hy
 
@@ -20,3 +20,12 @@ Not to be confused with the actual properties generated on the control by
 parseCoords, [coordinate properties](coordinate_properties.html).
 
 See also [Understanding the coordinate system](understanding_the_coordinate_system.html)
+
+There also will exist on the control two *calculated* values that can be
+useful:
+
+* bx
+* by
+
+These represent the x and y coords of the box built as a result of the other
+coords(?)

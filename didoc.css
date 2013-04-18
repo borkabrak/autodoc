@@ -57,6 +57,9 @@ a:hover {
 }
 
 .nav-menu a {
+    background-color: #808880;
+    border-radius: 0.5em;
+    padding: 0.5em;
     margin: 1em;
 }
 
