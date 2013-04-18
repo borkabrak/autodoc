@@ -1,6 +1,6 @@
 body {
     
-    background-color: #415658;
+    background-color: #5a5c69;
     font-family: sans-serif;
     font-size: 1.1em;
 
@@ -15,12 +15,22 @@ ul {
 }
 
 a, a:visited {
+    margin:0.2em;
+    padding:0.1em;
     color: #016;
+    -webkit-transition: all 0.25s ease-in-out;
+    text-decoration:none;
+}
+
+a:hover {
+    border-radius: 0.3em;
+    background-color: #666;
+    color: #9ad;
 }
 
 .text-container {
     background-color: #928b94;
-    background: -webkit-gradient(linear, left top, right bottom, to(#686268), from(#807278));
+    background: -webkit-gradient(linear, left top, right bottom, from(#555), to(#777));
     border: solid #222 0.75em;
 }
 
