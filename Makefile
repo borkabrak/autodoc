@@ -1,5 +1,7 @@
 # Build the ditool documentation site
 
+# Set the destination for finished HTML files -- this should be where the web
+# server will look for the site.
 DESTINATION=/srv/www/htdocs/didoc
 
 # Default build is first one -- neat

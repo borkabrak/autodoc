@@ -1,0 +1,76 @@
+DIDoc -- Documentation of Ken's DITool project.
+==============================================================================
+
+(TL;DR --> Edit or create a .mkd file and run 'make'.)
+
+The documentation files are all those files that end with '.mkd'.  They're
+written in a special format called Markdown.  It's a text-only format that's
+meant to be easy for humans to read (and write), and also easy for computers
+to convert into HTML.  It's based on conventions from text-based email such as
+using stars for emphasis, the character '>' for quoting, and other such
+things.  To put it another way, Markdown is markup that doesn't *look* like
+it.
+
+More about Markdown can be found at:
+
+    http://daringfireball.net/projects/markdown/syntax
+
+
+HOW TO WRITE THE DOCUMENTATION:
+==============================================================================
+Edit any of the .mkd files.  Familiarity with the Markdown format will of
+course help, but it's pretty obvious how to use it just from looking at it.
+In fact the text you're reading right now is in Markdown.  Surprise -- I've
+already tricked you into learning it!  :)
+
+
+HOW TO BUILD/PUBLISH THE DOCUMENTATION:
+==============================================================================
+Execute the Makefile.  For example, run this command:
+
+    $ make
+
+
+When you run the Makefile, this will happen:
+------------------------------------------------------------------------------
+
+* The code will be analyzed for recognized code elements, such as javascript
+  objects or KAML (Ken's Application Markup Language) tags.
+
+* An HTML page will be created for each element containing whatever
+  information the program could discover.
+
+* If there exists a markdown file (.mkd) for the element, its content will
+  be incorporated into the element's page.
+
+* In fact, *all* markdown files get turned into an HTML page, whether they
+  match a code element or not.
+
+* The HTML will be assembled and deployed to the website.
+
+* PROFIT!
+
+------------------------------------------------------------------------------
+
+
+CONFIGURING THE BUILD PROCESS:
+==============================================================================
+To change how the site is built, edit the Makefile.  For example, to change
+the destination directory where the web server looks for the site to be, edit
+the value of the DESTINATION variable.
+
+Some things to know:
+------------------------------------------------------------------------------
+
+* The files in the documentation directory (.mkd) will never be changed
+  automatically.  Beyond what is automatically generated, THE MARKDOWN FILES
+  *ARE* THE DOCUMENTATION.
+
+* Do not delete the Makefile.  And unless you know what you're doing, don't
+  edit it. It describes to the computer the steps for building and publishing
+  the website.  
+
+* Everything else that's not documentation -- javascript, css, the scripts that
+  build the site -- all live in the 'bin/' directory.  Do not delete the bin/
+  directory.  Do not delete anything *in* the bin/ directory.  The documentation
+  directory on the top level is for the documentation.
