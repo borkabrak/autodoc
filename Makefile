@@ -16,8 +16,8 @@ kaml:
 publish:
 	# Publish the files to the web dir
 	cp *.html $(DESTINATION)/
-	cp *.css $(DESTINATION)/
-	cp *.js $(DESTINATION)/
+	cp bin/*.css $(DESTINATION)/
+	cp bin/*.js $(DESTINATION)/
 
 mkd2html:
 	# Convert the files
