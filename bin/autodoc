@@ -9,7 +9,7 @@ use Text::Markdown 'markdown';
 use Template;
 
 # CONFIG
-my $template_file = "bin/html_template.ttk";
+my $template_file = "bin/html_template.tt";
 
 print "Converting markdown files to HTML..\n";
 my $tt = Template->new;

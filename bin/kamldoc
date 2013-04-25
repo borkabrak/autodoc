@@ -10,7 +10,7 @@ use Template;
 # CONFIG
 my $apifile ="/cygdrive/c/TFS/Data\ Intelligence\ Tool/src/ditool/DEV/api.js";
 my $outdir = '/home/jcarter/ditool/didoc';
-my $template_name = '/home/jcarter/ditool/didoc/bin/html_template.ttk';
+my $template_name = '/home/jcarter/ditool/didoc/bin/html_template.tt';
 
 #-- BEGIN ----------------------------------------------------------------------------
 print "Creating documentation..\n";

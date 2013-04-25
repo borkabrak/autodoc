@@ -9,7 +9,7 @@ use Text::Markdown 'markdown';
 use Template;
 
 # CONFIG
-my $template_file = "/home/jcarter/ditool/didoc/bin/html_template.ttk";
+my $template_file = "/home/jcarter/ditool/didoc/bin/html_template.tt";
 
 my $tt = Template->new;
 foreach (@ARGV){
