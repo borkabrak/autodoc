@@ -1,38 +1,52 @@
-# Build the ditool documentation site
+##############################################################################
+#
+# Build and deploy the ditool documentation site
+#
+#   Make should remain idempotent (i.e., it never hurts to run it)
+#   This means: 
+#       - it never changes human-composed doc files
+#       - When it cleans up, it removes ONLY FILES THAT IT CREATED
+#
+##############################################################################
 
 # Set the destination for finished HTML files -- this should be where the web
 # server will look for the site.
-DESTINATION=/srv/www/htdocs/didoc
+WEBDIR=/srv/www/htdocs/didoc
 
-# Default build is first one -- neat
 
-# Publish and clean up after build
-all: build tidy
+# Default target (what happens when you just run 'make')
 
-build: kaml mkd2html publish 
+all: build publish tidy_up
 
-kaml:
+
+##############################################################################
+
+build: generate_kaml_doc convert_to_html 
+
+generate_kaml_doc:
 	# Auto-generate KAML documentation
-	bin/kamldoc
+	bin/generate_kaml_doc
 
-publish:
-	# Publish the files to the web dir
-	cp *.html $(DESTINATION)/
-	cp bin/*.css $(DESTINATION)/
-	cp bin/*.js $(DESTINATION)/
-
-mkd2html:
+convert_to_html:
 	# Convert the files
 	bin/autodoc *.mkd
 
-sloppy: build
+publish:
+	# Publish the files to the web dir
+	cp *.html $(WEBDIR)/
+	cp bin/*.css $(WEBDIR)/
+	cp bin/*.js $(WEBDIR)/
+
+
+##############################################################################
+sloppy: build publish
 	# Publish, but leave converted files in doc directory
 
-tidy:
+tidy_up:
 	# Remove converted files from doc directory
 	rm -f *.html
 	
 clean:
 	# Remove all generated files -- including published
 	rm -f *.html
-	rm -f $(DESTINATION)/*.html
+	rm -f $(WEBDIR)/*.html
