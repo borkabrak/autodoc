@@ -1,3 +1,0 @@
-#!/usr/bin/env zsh
-rm -f $didoc/di_reports/*.mkd
-rm -f $didoc/di_reports/*.html
