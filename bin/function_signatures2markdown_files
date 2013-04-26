@@ -2,7 +2,7 @@
 #
 #   Generate a markdown file per function signature in STDIN
 #
-#   USAGE: func2mkd [-f|--force] [<function signature> ...]
+#   USAGE: func2mkd [-f|--force]
 #
 #
 #   -f or --force: overwrite existing files.  THIS WILL DESTROY ANY WORK DONE AFTERWARDS.
