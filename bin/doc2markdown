@@ -10,11 +10,10 @@ use Template;
 my $ttk = Template->new;
 
 # CONFIG
-my $outdir = 'bin/markdown/';
 my $specfile = 'bin/analysis.json';
 
 #-- BEGIN ----------------------------------------------------------------------------
-say "Creating KAML documentation..";
+say "Applying analysis..";
 
 # Get spec data
 open SPEC, $specfile or die "Can't open $specfile:$!";
@@ -24,7 +23,8 @@ my $spec = decode_json(join('',<SPEC>));
 for (@ARGV) {
     chomp;
 
-    my $outfile = $outdir . basename($_);
+    my ($basename, undef, $suffix) = fileparse($_, ".mkd");
+    my $outfile = "$basename.markdown";
     say "$_ -> $outfile";
 
     $ttk->process( $_, $spec, $outfile) || die $ttk->error();

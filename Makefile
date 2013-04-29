@@ -4,38 +4,45 @@
 #
 #   Make should remain idempotent (i.e., it never hurts to run it)
 #   This means: 
-#       - it never changes human-composed doc files
+#       - it never changes human-composed doc files (.mkd)
 #       - When it cleans up, it removes ONLY FILES THAT IT CREATED
 #
 ##############################################################################
 
-# Set the destination for finished HTML files -- this should be where the web
-# server will look for the site.
+# Where the website lives
 WEBDIR=/srv/www/htdocs/didoc
 
+# Where DIDoc lives
+PROJECT_ROOT=/home/jcarter/ditool/didoc
 
+##############################################################################
 # Default target (what happens when you just run 'make')
+
 
 all: build publish tidy_up
 
 
 ##############################################################################
 
-build: generate_kaml_doc convert_to_html 
+build: analyze generate_markdown convert_to_html 
 
-generate_kaml_doc:
-	# Auto-generate KAML documentation
-	bin/generate_kaml_doc
+analyze:
+	# Build a knowledge base of everything we can programatically discover
+	$(PROJECT_ROOT)/bin/analyze $(PROJECT_ROOT)/bin/analysis.json
+
+generate_markdown: cd
+	# Consolidate doc with analysis data
+	bin/doc2markdown *.mkd
 
 convert_to_html:
 	# Convert the files
-	bin/autodoc *.mkd
+	$(PROJECT_ROOT)/bin/autodoc $(PROJECT_ROOT)/*.markdown
 
 publish:
 	# Publish the files to the web dir
-	cp *.html $(WEBDIR)/
-	cp bin/*.css $(WEBDIR)/
-	cp bin/*.js $(WEBDIR)/
+	cp $(PROJECT_ROOT)/*.html $(WEBDIR)/
+	cp $(PROJECT_ROOT)/bin/*.css $(WEBDIR)/
+	cp $(PROJECT_ROOT)/bin/*.js $(WEBDIR)/
 
 
 ##############################################################################
@@ -44,9 +51,14 @@ sloppy: build publish
 
 tidy_up:
 	# Remove converted files from doc directory
-	rm -f *.html
+	rm -f $(PROJECT_ROOT)/*.html
+	rm -f $(PROJECT_ROOT)/*.markdown
+	rm -f $(PROJECT_ROOT)/bin/analysis.json
 	
-clean:
+clean: tidy_up
 	# Remove all generated files -- including published
-	rm -f *.html
 	rm -f $(WEBDIR)/*.html
+
+cd:
+	#switch to project home dir
+	cd $(PROJECT_ROOT)/ 
