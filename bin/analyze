@@ -4,6 +4,7 @@
 
 use strict;
 use 5.012;
+use File::Basename;
 use JSON;
 my $json = JSON->new;
 
@@ -24,8 +25,20 @@ if (open SPEC, $specfile) {
 };
 
 # Add to the spec anything else we can find out
+##############################################################################
+
+# KAML elements
 say "Analyzing KAML elements..";
-$spec->{ kaml_elements } = find_in_file(qr/(di_\w+)/i, $apifile);
+$spec->{ elements } = find_in_file(qr/(di_\w+)/i, $apifile);
+print Dumper( $spec->{ elements });
+
+# Non-element pages
+my %elems = map {$_ => 1} @{$spec->{ elements }};
+for (glob "*.mkd"){
+    my ($filename, undef, $suffix) = fileparse($_, ".mkd");
+    next if $elems{ $filename };   
+    push @{$spec->{ otherPages }}, $filename . ".html";
+};
 
 # write spec
 open JSONFILE, ">", $analysis_file or die "Can't open $analysis_file:$!";

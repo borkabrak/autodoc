@@ -13,9 +13,14 @@ Developer documentation for the DITool application.
 
 [Open Questions](open_questions.html)
 
-## Javascript 
+## KAML Elements
+[% FOREACH element = elements %]
+* [[% element %]]([% element %])
+[% END %]
 
-### Objects
+### Other Pages
 
 ------------------------------------------------------------------------------
-[% allpages %]
+[% FOREACH page = otherPages %]
+* [[% page %]]([% page %])
+[% END %]
