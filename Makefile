@@ -53,7 +53,6 @@ tidy_up:
 	# Remove converted files from doc directory
 	rm -f $(PROJECT_ROOT)/*.html
 	rm -f $(PROJECT_ROOT)/*.markdown
-	rm -f $(PROJECT_ROOT)/bin/analysis.json
 	
 clean: tidy_up
 	# Remove all generated files -- including published
