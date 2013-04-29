@@ -1,0 +1,34 @@
+#!/usr/bin/env perl
+#
+# For each documentation file that exists, create a 'pure markdown' file in a subdir
+use strict;
+use 5.012;
+use File::Basename;
+use Text::Markdown 'markdown';
+use JSON;
+use Template;
+my $ttk = Template->new;
+
+# CONFIG
+my $outdir = 'bin/markdown/';
+my $specfile = '/home/jcarter/ditool/didoc/bin/analysis.json';
+
+#-- BEGIN ----------------------------------------------------------------------------
+print "Creating KAML documentation..\n";
+
+# Get spec data
+open SPEC, $specfile or die "Can't open $specfile:$!";
+my $spec = decode_json(join('',<SPEC>));
+close SPEC;
+
+# Convert each file
+for (@ARGV) {
+    chomp;
+
+    my $outfile = $outdir . basename($_);
+    print "$_ -> $outfile\n";
+
+    $ttk->process( $_, $spec, $outfile) || die $ttk->error();
+}
+
+print "..Done\n";

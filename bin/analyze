@@ -4,7 +4,6 @@
 
 use strict;
 use 5.012;
-
 use JSON;
 my $json = JSON->new;
 
@@ -12,21 +11,27 @@ use Data::Dumper;
 
 my $apifile ="/cygdrive/c/TFS/Data\ Intelligence\ Tool/src/ditool/DEV/api.js";
 my $output_directory = '/home/jcarter/ditool/didoc/bin/markdown';
-my $analysis_file = '/home/jcarter/ditool/didoc/bin/analysis.json';
-my $data = {};
-
+my $specfile = "/home/jcarter/ditool/didoc/bin/spec.js";
+my $analysis_file = "/home/jcarter/ditool/didoc/bin/analysis.json";
 say "Creating code analysis..";
 
-#==============================================================================
-say "Analyzing KAML..";
-$data->{ kaml_elements } = find_in_file(qr/(di_\w+)/i, $apifile);
+# Initialize spec from file, if possible
+my $spec = {};
+if (open SPEC, $specfile) {
+    $spec = $json->decode(join('', <SPEC>));
+} else {
+    warn "Spec $specfile not found:$!";
+};
 
+# Add to the spec anything else we can find out
+say "Analyzing KAML elements..";
+$spec->{ kaml_elements } = find_in_file(qr/(di_\w+)/i, $apifile);
 
-# save JSON to file, then change the Makefile to use this before making the analysis deeper.
+# write spec
 open JSONFILE, ">", $analysis_file or die "Can't open $analysis_file:$!";
-print JSONFILE $json->pretty->encode($data);
-
+print JSONFILE $json->pretty->encode($spec);
 say "Analysis created at $analysis_file";
+
 #==============================================================================
 sub find_in_file {
     # Returns a (reference to a) sorted, unique array of all matches for $regex
