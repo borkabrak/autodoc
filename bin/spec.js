@@ -1,0 +1,4 @@
+{
+    "name" : "DIDoc",
+    "allpages" : "bork"
+}
