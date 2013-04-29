@@ -12,19 +12,21 @@ use Data::Dumper;
 
 my $apifile ="/cygdrive/c/TFS/Data\ Intelligence\ Tool/src/ditool/DEV/api.js";
 my $output_directory = '/home/jcarter/ditool/didoc/bin/markdown';
+my $analysis_file = '/home/jcarter/ditool/didoc/bin/analysis.json';
 my $data = {};
 
 say "Creating code analysis..";
 
 #==============================================================================
 say "Analyzing KAML..";
-
 $data->{ kaml_elements } = find_in_file(qr/(di_\w+)/i, $apifile);
 
-print Dumper($json->pretty->encode($data));
 
 # save JSON to file, then change the Makefile to use this before making the analysis deeper.
+open JSONFILE, ">", $analysis_file or die "Can't open $analysis_file:$!";
+print JSONFILE $json->pretty->encode($data);
 
+say "Analysis created at $analysis_file";
 #==============================================================================
 sub find_in_file {
     # Returns a (reference to a) sorted, unique array of all matches for $regex
