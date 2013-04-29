@@ -19,7 +19,7 @@ say "Applying analysis..";
 open SPEC, $specfile or die "Can't open $specfile:$!";
 my $spec = decode_json(join('',<SPEC>));
 
-# Convert each file
+# Do template processing on each file
 for (@ARGV) {
     chomp;
 
