@@ -14,6 +14,7 @@ use Data::Dumper;
 my $apifile ="/cygdrive/c/TFS/Data\ Intelligence\ Tool/src/ditool/DEV/api.js";
 my $specfile = "/home/jcarter/ditool/didoc/bin/spec.json";
 my $analysis_file = "/home/jcarter/ditool/didoc/bin/analysis.json";
+my $project_dir = "/home/jcarter/ditool/didoc/doc/";
 my $json = JSON->new;
 say "Creating spec..";
 
@@ -34,7 +35,7 @@ $spec->{ elements } = find_in_file(qr/(di_\w+)/i, $apifile);
 
 # Non-element pages
 my %elems = map {$_ => 1} @{$spec->{ elements }};
-for (glob "*.mkd"){
+for (glob $project_dir . "/*.mkd"){
     my ($filename, undef, $suffix) = fileparse($_, ".mkd");
     next if $elems{ $filename };   
     push @{$spec->{ otherPages }}, $filename;
