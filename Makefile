@@ -28,7 +28,7 @@ build: analyze generate_markdown convert_to_html
 
 analyze:
 	# Build a knowledge base of everything we can programatically discover
-	$(PROJECT_ROOT)/bin/analyze $(PROJECT_ROOT)/bin/analysis.json
+	$(PROJECT_ROOT)/bin/make_spec $(PROJECT_ROOT)/bin/analysis.json
 
 generate_markdown: cd
 	# Consolidate doc with analysis data
