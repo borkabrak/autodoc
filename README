@@ -1,30 +1,59 @@
-DIDoc -- Documentation of Ken's DITool project.
+DIDoc -- Documentation of the DITool project.
 ==============================================================================
 
-(TL;DR --> Edit or create a .mkd file and run 'make'.)
+TL;DR: 
+    * Edit *.mkd files and run 'make' to deploy the website.
 
-The documentation files are all those files that end with '.mkd'.  They're
-written in a special format called Markdown.  It's a text-only format that's
-meant to be easy for humans to read (and write), and also easy for computers
-to convert into HTML.  It's based on conventions from text-based email such as
-using stars for emphasis, the character '>' for quoting, and other such
-things.  To put it another way, Markdown is markup that doesn't *look* like
-it.
 
-More about Markdown can be found at:
-
-    http://daringfireball.net/projects/markdown/syntax
+The documentation files are all those files that end with '.mkd'.  The format
+is a mix of two technologies: Markdown and Template Toolkit.
 
 
 HOW TO WRITE THE DOCUMENTATION:
 ==============================================================================
-Edit any of the .mkd files.  Familiarity with the Markdown format will of
-course help, but it's pretty obvious how to use it just from looking at it.
-In fact the text you're reading right now is in Markdown.  Surprise -- I've
-already tricked you into learning it!  :)
+
+Just edit or create *.mkd files.
+
+Familiarity with the Markdown and TTK formats will of course help, but Markdown
+is pretty obvious, and TTK can be more or less ignored entirely if you don't
+need it.  This file itself is in Markdown.  Surprise -- I've already tricked
+you into learning it!  :)
 
 
-HOW TO BUILD/PUBLISH THE DOCUMENTATION:
+MARKDOWN
+==============================================================================
+
+Markdown is a text-only format that's meant to be easy for humans to read and
+write, and also easy for computers to convert into HTML.  It's based on
+conventions from text-based email such as using stars for emphasis, the
+character '>' for quoting, and other such things.  To put it another way,
+Markdown is markup that *looks* like plain text.
+
+More about Markdown:
+
+    http://daringfireball.net/projects/markdown/syntax
+
+
+TEMPLATE TOOLKIT:
+==============================================================================
+
+Template Toolkit (TTK) is a way for us to get variable data into the pages.
+The notation looks like:
+
+    [% projectName %]      --> includes the value of projectName
+
+These available data is specified in two ways:
+
+    * Some are automatically generated via the `analyze` program
+    * The file 'bin/spec.json' can be edited to add any other data we need.
+
+TTK also includes a pretty full-featured set of directives such as control
+structures and file inclusion.  Read more at:
+
+    http://www.template-toolkit.org/docs/manual/Syntax.html
+
+
+HOW TO BUILD/PUBLISH THE DOCUMENTATION INTO A WEBSITE:
 ==============================================================================
 Execute the Makefile.  For example, run this command:
 
@@ -34,17 +63,13 @@ Execute the Makefile.  For example, run this command:
 When you run the Makefile, this will happen:
 ------------------------------------------------------------------------------
 
-* The code will be analyzed for recognized code elements, such as javascript
+* The code will be analyzed for what I'm calling 'spec' data, such as javascript
   objects or KAML (Ken's Application Markup Language) tags.
 
-* An HTML page will be created for each element containing whatever
-  information the program could discover.
+* The spec file will be read and its data added to that automatically generated.
+    (NOTE:  The entire generated/combined spec will be saved to analysis.json)
 
-* If there exists a markdown file (.mkd) for the element, its content will
-  be incorporated into the element's page.
-
-* In fact, *all* markdown files get turned into an HTML page, whether they
-  match a code element or not.
+* Every *.mkd file will have the spec data interpolated into it, and the contents then converted into HTML.
 
 * The HTML will be assembled and deployed to the website.
 
@@ -55,9 +80,9 @@ When you run the Makefile, this will happen:
 
 CONFIGURING THE BUILD PROCESS:
 ==============================================================================
-To change how the site is built, edit the Makefile.  For example, to change
-the destination directory where the web server looks for the site to be, edit
-the value of the DESTINATION variable.
+To change how the site is built, edit the Makefile.  For example, to change the
+directory where the web server looks for the site to be, edit the value of the
+WEBDIR variable.
 
 Some things to know:
 ------------------------------------------------------------------------------
