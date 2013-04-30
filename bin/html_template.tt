@@ -10,7 +10,7 @@
         <span class='nav-menu text-container'>
             <span class='link'> <a href='#' class='back'>&lt;&lt; Back</a> </span>
             <span class='link'> <a href='index.html'>Index</a> </span>
-            <span class='link'> <a href='README.html'>HOWTO</a> </span>
+            <span class='link' id="help"> <a href='README.html'>HELP/HOWTO</a> </span>
         </span>
         <div class='content text-container'>
         [% content %]
