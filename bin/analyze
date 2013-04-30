@@ -6,17 +6,16 @@ use strict;
 use 5.012;
 use File::Basename;
 use JSON;
-my $json = JSON->new;
-
 use Data::Dumper;
 
 my $apifile ="/cygdrive/c/TFS/Data\ Intelligence\ Tool/src/ditool/DEV/api.js";
 my $output_directory = '/home/jcarter/ditool/didoc/bin/markdown';
-my $specfile = "/home/jcarter/ditool/didoc/bin/spec.js";
+my $specfile = "/home/jcarter/ditool/didoc/bin/spec.json";
 my $analysis_file = "/home/jcarter/ditool/didoc/bin/analysis.json";
+my $json = JSON->new;
 say "Creating code analysis..";
 
-# Initialize spec from file, if possible
+# Initialize spec from file
 my $spec = {};
 if (open SPEC, $specfile) {
     $spec = $json->decode(join('', <SPEC>));
