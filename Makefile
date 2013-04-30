@@ -55,8 +55,10 @@ tidy_up:
 	rm -f $(PROJECT_ROOT)/*.markdown
 	
 clean: tidy_up
-	# Remove all generated files -- including published
+	# Remove all published files
 	rm -f $(WEBDIR)/*.html
+	rm -f $(WEBDIR)/*.css
+	rm -f $(WEBDIR)/*.js
 
 cd:
 	#switch to project home dir
