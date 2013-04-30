@@ -31,7 +31,6 @@ if (open SPEC, $specfile) {
 # KAML elements
 say "Analyzing KAML elements..";
 $spec->{ elements } = find_in_file(qr/(di_\w+)/i, $apifile);
-print Dumper( $spec->{ elements });
 
 # Non-element pages
 my %elems = map {$_ => 1} @{$spec->{ elements }};
