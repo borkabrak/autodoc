@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
-# Convert markdown to HTML for the DiTool Documentation Project
-#   -Creates an *.html file for each input file that doesn't already have one
+#   -Creates an *.html file for each input file that doesn't already have one,
+#    converting from markdown.
 #
 #   USAGE: $0 *.mkd
 
@@ -9,24 +9,27 @@ use Text::Markdown 'markdown';
 use Template;
 
 # CONFIG
-my $template_file = "/home/jcarter/ditool/didoc/bin/html_template.tt";
+my $template_file = "bin/html_template.tt";
 
+print "Converting markdown files to HTML..\n";
 my $tt = Template->new;
 foreach (@ARGV){
-	print "Converting $_..\n";
-
+	print "$_..\n";
     # Get HTML file name
     my ($basename,undef) = /(.*)(\..*)$/;
 	my $outfile = "$basename.html";
-	next if -e $outfile;
+	if (-e $outfile) {
+        print "\t$outfile exists.  Skipping.\n";
+        next;
+    };
 
     # Get contents of markdown file
     open my $input, $_;
-    my $content = join '', <$input>;
+    my $content = markdown(join '', <$input>);
     close $input;
 
-    # Assemble and write HTML
     open my $output, ">$outfile";
+    # Assemble and write HTML
     $tt->process($template_file, {
             element_name => $basename,
             content => $content
@@ -36,4 +39,3 @@ foreach (@ARGV){
 
     close $output;
 }
-

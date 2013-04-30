@@ -36,7 +36,7 @@ generate_markdown: cd
 
 convert_to_html:
 	# Convert the files
-	$(PROJECT_ROOT)/bin/autodoc $(PROJECT_ROOT)/*.markdown
+	$(PROJECT_ROOT)/bin/markdown2html $(PROJECT_ROOT)/*.markdown
 
 publish:
 	# Publish the files to the web dir
