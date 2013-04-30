@@ -1,8 +1,10 @@
 DIDoc -- Documentation of the DITool project.
 ==============================================================================
 
-TL;DR: 
-    * Edit *.mkd files and run 'make' to deploy the website.
+The short version:
+
+* Go to \\USHEN048W\Public\Didoc
+* Edit *.mkd files (changes will be deployed within five minutes)
 
 
 The documentation files are all those files that end with '.mkd'.  The format
@@ -17,22 +19,21 @@ Just edit or create *.mkd files.
 Familiarity with the Markdown and TTK formats will of course help, but Markdown
 is pretty obvious, and TTK can be more or less ignored entirely if you don't
 need it.  To get the idea, compare the version of this file in the doc
-directory with what you see in a browser on the site.
+directory with what you see in on the site.
 
 MARKDOWN
 ==============================================================================
 
 Markdown is a text-only format that's meant to be easy for humans to read and
-write, and also easy for computers to convert into HTML.  It's based on
-conventions from text-based email such as using stars for emphasis, the
-character '>' for quoting, and other such things.  To put it another way,
-Markdown is markup that *looks* like plain text.
+write, and also easy for computers to convert into HTML.  It's based on things
+people already do such as using stars for emphasis, the character '>' for
+quoting, and other such things.  In short, Markdown is markup that *looks*
+like regular ol' text.
 
-More about Markdown:
-
-    http://daringfireball.net/projects/markdown/syntax
+[More about Markdown](http://daringfireball.net/projects/markdown/syntax)
 
 
+[% TAGS [- -] %]
 TEMPLATE TOOLKIT:
 ==============================================================================
 
@@ -47,9 +48,9 @@ The available data comes from two different places:
 * The file 'bin/spec.json' can be edited to add any other data we need.
 
 TTK also includes a pretty full-featured set of directives such as control
-structures and file inclusion.  Read more at:
+structures and file inclusion.  
 
-    http://www.template-toolkit.org/docs/manual/Syntax.html
+[More about Template Toolkit](http://www.template-toolkit.org/docs/manual/Syntax.html)
 
 
 HOW TO BUILD/PUBLISH THE DOCUMENTATION INTO A WEBSITE:
