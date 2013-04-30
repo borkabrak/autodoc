@@ -1,6 +1,9 @@
 #!/usr/bin/env perl
 #
 #   Create a JSON file containing everything we can determine about the source (e.g., KAML element names)
+#
+#   The main thrust here is to assemble all the data we can into a data
+#   structure, and then store that in a file as JSON
 
 use strict;
 use 5.012;
@@ -9,18 +12,17 @@ use JSON;
 use Data::Dumper;
 
 my $apifile ="/cygdrive/c/TFS/Data\ Intelligence\ Tool/src/ditool/DEV/api.js";
-my $output_directory = '/home/jcarter/ditool/didoc/bin/markdown';
 my $specfile = "/home/jcarter/ditool/didoc/bin/spec.json";
 my $analysis_file = "/home/jcarter/ditool/didoc/bin/analysis.json";
 my $json = JSON->new;
-say "Creating code analysis..";
+say "Creating spec..";
 
 # Initialize spec from file
 my $spec = {};
 if (open SPEC, $specfile) {
     $spec = $json->decode(join('', <SPEC>));
 } else {
-    warn "Spec $specfile not found:$!";
+    warn "Spec file $specfile not found:$!";
 };
 
 # Add to the spec anything else we can find out
@@ -36,7 +38,7 @@ my %elems = map {$_ => 1} @{$spec->{ elements }};
 for (glob "*.mkd"){
     my ($filename, undef, $suffix) = fileparse($_, ".mkd");
     next if $elems{ $filename };   
-    push @{$spec->{ otherPages }}, $filename . ".html";
+    push @{$spec->{ otherPages }}, $filename;
 };
 
 # write spec

@@ -22,5 +22,5 @@ Developer documentation for the DITool application.
 
 ------------------------------------------------------------------------------
 [% FOREACH page = otherPages %]
-* [[% page %]]([% page %])
+* [[% page %]]([% page %].html)
 [% END %]
