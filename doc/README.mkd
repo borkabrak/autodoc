@@ -16,9 +16,8 @@ Just edit or create *.mkd files.
 
 Familiarity with the Markdown and TTK formats will of course help, but Markdown
 is pretty obvious, and TTK can be more or less ignored entirely if you don't
-need it.  This file itself is in Markdown.  Surprise -- I've already tricked
-you into learning it!  :)
-
+need it.  To get the idea, compare the version of this file in the doc
+directory with what you see in a browser on the site.
 
 MARKDOWN
 ==============================================================================
@@ -37,15 +36,15 @@ More about Markdown:
 TEMPLATE TOOLKIT:
 ==============================================================================
 
-Template Toolkit (TTK) is a way for us to get variable data into the pages.
-The notation looks like:
+Template Toolkit (TTK) is a way to get variable data into the pages.  The
+notation looks like:
 
     [% projectName %]      --> includes the value of projectName
 
-These available data is specified in two ways:
+The available data comes from two different places:
 
-    * Some are automatically generated via the `analyze` program
-    * The file 'bin/spec.json' can be edited to add any other data we need.
+* Some are automatically generated via the `analyze` program
+* The file 'bin/spec.json' can be edited to add any other data we need.
 
 TTK also includes a pretty full-featured set of directives such as control
 structures and file inclusion.  Read more at:
