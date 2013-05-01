@@ -4,7 +4,7 @@ DIDoc -- Documentation of the DITool project.
 The short version:
 
 * Go to \\USHEN048W\Public\Didoc
-* Edit *.mkd files (changes will be deployed within five minutes)
+* Edit/create .mkd files (changes are deployed periodically)
 
 
 The documentation files are all those files that end with '.mkd'.  The format
@@ -14,7 +14,7 @@ is a mix of two technologies: Markdown and Template Toolkit.
 HOW TO WRITE THE DOCUMENTATION:
 ==============================================================================
 
-Just edit or create *.mkd files.
+Just edit or create .mkd files.
 
 Familiarity with the Markdown and TTK formats will of course help, but Markdown
 is pretty obvious, and TTK can be more or less ignored entirely if you don't
@@ -53,11 +53,11 @@ structures and file inclusion.
 [More about Template Toolkit](http://www.template-toolkit.org/docs/manual/Syntax.html)
 
 
-HOW TO BUILD/PUBLISH THE DOCUMENTATION INTO A WEBSITE:
+PUBLISHING
 ==============================================================================
-Execute the Makefile.  For example, run this command:
 
-    $ make
+The documentation is periodically built and published to the website.  (At the
+time of this writing, this happens every ten minutes.)
 
 
 When you run the Makefile, this will happen:
@@ -69,33 +69,9 @@ When you run the Makefile, this will happen:
 * The spec file will be read and its data added to that automatically generated.
     (NOTE:  The entire generated/combined spec will be saved to analysis.json)
 
-* Every *.mkd file will have the spec data interpolated into it, and the contents then converted into HTML.
+* Every .mkd file will have the spec data interpolated into it, and the
+  contents then converted into HTML.
 
 * The HTML will be assembled and deployed to the website.
 
 * PROFIT!
-
-------------------------------------------------------------------------------
-
-
-CONFIGURING THE BUILD PROCESS:
-==============================================================================
-To change how the site is built, edit the Makefile.  For example, to change the
-directory where the web server looks for the site to be, edit the value of the
-WEBDIR variable.
-
-Some things to know:
-------------------------------------------------------------------------------
-
-* The files in the documentation directory (.mkd) will never be changed
-  automatically.  Beyond what is automatically generated, THE MARKDOWN FILES
-  *ARE* THE DOCUMENTATION.
-
-* Do not delete the Makefile.  And unless you know what you're doing, don't
-  edit it. It describes to the computer the steps for building and publishing
-  the website.  
-
-* Everything else that's not documentation -- javascript, css, the scripts that
-  build the site -- all live in the 'bin/' directory.  Do not delete the bin/
-  directory.  Do not delete anything *in* the bin/ directory.  The documentation
-  directory on the top level is for the documentation.
