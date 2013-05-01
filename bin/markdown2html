@@ -4,8 +4,9 @@
 #
 #   USAGE: $0 *.mkd
 
-use strict;
+use 5.012;
 use Text::Markdown 'markdown';
+use File::Basename;
 use Template;
 
 # CONFIG
@@ -16,7 +17,7 @@ my $tt = Template->new;
 foreach (@ARGV){
 	print "$_..\n";
     # Get HTML file name
-    my ($basename,undef) = /(.*)(\..*)$/;
+    my ($basename) = fileparse($_, ".markdown");
 	my $outfile = "$basename.html";
 	if (-e $outfile) {
         print "\t$outfile exists.  Skipping.\n";
@@ -31,7 +32,7 @@ foreach (@ARGV){
     open my $output, ">$outfile";
     # Assemble and write HTML
     $tt->process($template_file, {
-            element_name => $basename,
+            pagename => $basename,
             content => $content
         },
         $output

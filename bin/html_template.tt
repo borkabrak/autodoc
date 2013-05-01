@@ -4,7 +4,7 @@
         <link type="text/css" rel="stylesheet" href="didoc.css" />
         <script type="text/javascript" src="../scripts/jquery-1.9.1.js"></script>
         <script type="text/javascript" src="didoc.js"></script>
-        <title>DiTool Documentation -- [% element_name %]</title>
+        <title>DiTool Documentation -- [% pagename %]</title>
     </head>
     <body>
         <span class='nav-menu text-container'>
@@ -13,6 +13,8 @@
             <span class='link' id="help"> <a href='README.html'>HELP/HOWTO</a> </span>
         </span>
         <div class='content text-container'>
+        <h1>[% pagename %]</h1>
+        <hr />
         [% content %]
         </div>
     </body>
