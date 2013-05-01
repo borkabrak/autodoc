@@ -1,77 +1,82 @@
 DIDoc -- Documentation of the DITool project.
 ==============================================================================
-
-The short version:
-
-* Go to \\USHEN048W\Public\Didoc
-* Edit/create .mkd files (changes are deployed periodically)
-
-
-The documentation files are all those files that end with '.mkd'.  The format
-is a mix of two technologies: Markdown and Template Toolkit.
+------------------------------------------------------------------------------
+[%#
+  # Switch the TTK tags to something else for this page, so we can talk
+  # about them *on* this page.  
+%] 
+[% TAGS [- -] %]
 
 
-HOW TO WRITE THE DOCUMENTATION:
+How to write documentation
 ==============================================================================
 
-Just edit or create .mkd files.
+Just edit or create .mkd files in `\\USHEN048W\Public\didoc`. 
 
-Familiarity with the Markdown and TTK formats will of course help, but Markdown
-is pretty obvious, and TTK can be more or less ignored entirely if you don't
-need it.  To get the idea, compare the version of this file in the doc
-directory with what you see in on the site.
+Changes are deployed to the website automatically.
 
-MARKDOWN
+The format is a mix of two technologies: 
+
+* Markdown 
+* Template Toolkit (TTK).
+
+Familiarity with these will help, of course, but Markdown is pretty obvious,
+and TTK can be more or less ignored entirely if you don't need it.  To get the
+idea, compare the version of this file in the doc directory with what you see
+in on the site.
+  
+------------------------------------------------------------------------------
+
+Markdown
 ==============================================================================
 
 Markdown is a text-only format that's meant to be easy for humans to read and
 write, and also easy for computers to convert into HTML.  It's based on things
-people already do such as using stars for emphasis, the character '>' for
-quoting, and other such things.  In short, Markdown is markup that *looks*
+people already do such as using asterisks for emphasis, Empty lines to denote
+paragraphs, and other such things.  In short, Markdown is markup that *looks*
 like regular ol' text.
 
-[More about Markdown](http://daringfireball.net/projects/markdown/syntax)
+[More about Markdown](http://daringfireball.net/projects/markdown/)
 
+[Markdown syntax](http://daringfireball.net/projects/markdown/syntax)
 
-[% TAGS [- -] %]
-TEMPLATE TOOLKIT:
-==============================================================================
-
-Template Toolkit (TTK) is a way to get variable data into the pages.  The
-notation looks like:
-
-    [% projectName %]      --> includes the value of projectName
-
-The available data comes from two different places:
-
-* Some are automatically generated via the `analyze` program
-* The file 'bin/spec.json' can be edited to add any other data we need.
-
-TTK also includes a pretty full-featured set of directives such as control
-structures and file inclusion.  
-
-[More about Template Toolkit](http://www.template-toolkit.org/docs/manual/Syntax.html)
-
-
-PUBLISHING
-==============================================================================
-
-The documentation is periodically built and published to the website.  (At the
-time of this writing, this happens every ten minutes.)
-
-
-When you run the Makefile, this will happen:
 ------------------------------------------------------------------------------
 
-* The code will be analyzed for what I'm calling 'spec' data, such as javascript
-  objects or KAML (Ken's Application Markup Language) tags.
+Template Toolkit
+==============================================================================
 
-* The spec file will be read and its data added to that automatically generated.
-    (NOTE:  The entire generated/combined spec will be saved to analysis.json)
+Template Toolkit (TTK) is a way to get variable data into the pages.  TTK also
+includes a pretty full-featured set of directives such as control structures
+and file inclusion.  The notation looks like:
 
-* Every .mkd file will have the spec data interpolated into it, and the
-  contents then converted into HTML.
+    We have [% pagecount %] pages.
 
-* The HTML will be assembled and deployed to the website.
+The available data come from two different places:
 
-* PROFIT!
+* Some are automatically generated, such as a list of pages or code elements.
+* A spec file can be edited to add any other data we need that we
+  don't need to auto-generate, such as the name or current location of the
+  [- project -] project.
+
+[More about Template Toolkit](http://www.template-toolkit.org/docs/manual/Intro.html)
+
+[TTK Syntax](http://www.template-toolkit.org/docs/manual/Syntax.html)
+
+------------------------------------------------------------------------------
+
+The spec file
+------------------------------------------------------------------------------
+
+'The Spec' is what I'm calling a file containing a JSON data structure that
+specifies all the data available to the page for interpolation by TTK.  
+
+For example, the spec may have:
+
+    {
+        "project" : "DITool"
+    }
+
+in which case, `[% project %]` in a .mkd file will be replaced by "DITool"
+in the HTML output.
+
+*The spec is not yet available for edit*
