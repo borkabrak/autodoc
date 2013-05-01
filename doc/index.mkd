@@ -1,8 +1,8 @@
-DITool Documentation 
+[% projectName %] Documentation 
 ==============================================================================
 ---
 
-Developer documentation for the DITool application.
+Developer documentation for the [% projectName %] application.
 
 ## Recommended Topics
 
