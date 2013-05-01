@@ -15,7 +15,7 @@ Developer documentation for the DITool application.
 
 ## KAML Elements
 [% FOREACH element = elements %]
-* [[% element %]]([% element %])
+* [[% element %]]([% element %].html)
 [% END %]
 
 ### Other Pages
