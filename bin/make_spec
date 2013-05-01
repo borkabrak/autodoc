@@ -12,9 +12,9 @@ use JSON;
 use Data::Dumper;
 
 my $apifile ="/cygdrive/c/TFS/Data\ Intelligence\ Tool/src/ditool/DEV/api.js";
-my $specfile = "/home/jcarter/ditool/didoc/bin/spec.json";
-my $analysis_file = "/home/jcarter/ditool/didoc/bin/analysis.json";
-my $project_dir = "/home/jcarter/ditool/didoc/doc/";
+my $specfile = "bin/spec.json";
+my $analysis_file = "bin/analysis.json";
+my $project_dir = "doc/";
 my $json = JSON->new;
 say "Creating spec..";
 
