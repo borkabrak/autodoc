@@ -32,7 +32,7 @@ analyze:
 
 generate_markdown: cd
 	# Consolidate doc with analysis data
-	bin/ttk2markdown doc/*.mkd
+	$(PROJECT_ROOT)/bin/ttk2markdown doc/*.mkd
 
 convert_to_html:
 	# Convert the files
