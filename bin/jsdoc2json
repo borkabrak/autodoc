@@ -1,0 +1,42 @@
+#!/usr/bin/env ruby
+
+if (ARGV.length < 1) then
+    print "Usage: $0 <sourcefile>\n"
+    exit
+end
+
+print "Reading JSDoc..\n"
+
+spec = []
+
+# For each block of 'function code' (a jsdoc comment block and the following
+# function signature)..
+File.read(ARGV[0]).scan(%r{(/\*\*.*?\*/.*?function.*?\n)}m).flatten.each{ |function_code|
+
+    function_spec = {}
+
+    # get comment_block and function_signature
+    (
+    match, 
+    comment_block, 
+    function_signature
+    ) = %r{(/\*\*.*?\*/)\s*(.*)\{}m.match(function_code).to_a
+
+    puts "Comment Block:#{comment_block.inspect}"
+    puts "Function Signature:#{function_signature.inspect}"
+    puts "Tags:"
+
+    # For each jsdoc tag in the comments..
+    comment_block.scan(/(@.*?\n)/).flatten.each { |tag|
+        (match, name, value) = %r{@(.*):(.*)}.match(tag).to_a
+        puts "#{name} => #{value}"
+        function_spec[name.to_sym] = value
+    }
+
+    puts "=========================================================="
+
+    spec.push(function_spec)
+
+}
+
+puts spec.inspect
