@@ -32,7 +32,7 @@ Markdown
 
 Markdown is a text-only format that's meant to be easy for humans to read and
 write, and also easy for computers to convert into HTML.  It's based on things
-people already do such as using asterisks for emphasis, Empty lines to denote
+people already do such as using asterisks for emphasis, empty lines to denote
 paragraphs, and other such things.  In short, Markdown is markup that *looks*
 like regular ol' text.
 
