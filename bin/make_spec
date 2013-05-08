@@ -2,8 +2,7 @@
 #
 #   Create a JSON file containing everything we can determine about the source (e.g., KAML element names)
 #
-#   The main thrust here is to assemble all the data we can into a data
-#   structure, and then store that in a file as JSON
+#   The main thrust here is to assemble all the data we can into a file as JSON
 
 use strict;
 use 5.012;
