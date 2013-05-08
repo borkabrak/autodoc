@@ -1,18 +1,20 @@
 #!/usr/bin/env ruby
 
+require 'json'
+
+specfile = "jsdoc.json"
+
 if (ARGV.length < 1) then
-    print "Usage: $0 <sourcefile>\n"
+    puts "Usage: $0 <sourcefile>"
     exit
 end
 
-print "Reading JSDoc..\n"
+puts "Reading JSDoc.."
 
 spec = []
 
-# For each block of 'function code' (a jsdoc comment block and the following
-# function signature)..
+# For each function found..
 File.read(ARGV[0]).scan(%r{(/\*\*.*?\*/.*?function.*?\n)}m).flatten.each{ |function_code|
-
     function_spec = {}
 
     # get comment_block and function_signature
@@ -20,23 +22,30 @@ File.read(ARGV[0]).scan(%r{(/\*\*.*?\*/.*?function.*?\n)}m).flatten.each{ |funct
     match, 
     comment_block, 
     function_signature
-    ) = %r{(/\*\*.*?\*/)\s*(.*)\{}m.match(function_code).to_a
+    ) = %r{(/\*\*.*?\*/)\s*(.*?)\s*\{}m.match(function_code).to_a
+    function_spec["signature"] = function_signature
 
-    puts "Comment Block:#{comment_block.inspect}"
-    puts "Function Signature:#{function_signature.inspect}"
-    puts "Tags:"
+    # Get the function name and arguments FROM THE SIGNATURE.
+    #   -This represents a decision to grant primacy to the function signature
+    #    over the jsdoc commentary
+    re = ( 
+        function_signature =~ /=/ ? 
+        %r{(\w+)\s*=\s*function\s*\((.*)\)} : 
+        %r{function\s*(\w+)\s*\((.*)\)} 
+    )
+    (match, name, args) = re.match(function_signature).to_a
+    function_spec["signame"] = name 
+    function_spec["sigargs"] = args
 
-    # For each jsdoc tag in the comments..
+    # Read jsdoc tags
     comment_block.scan(/(@.*?\n)/).flatten.each { |tag|
-        (match, name, value) = %r{@(.*):(.*)}.match(tag).to_a
-        puts "#{name} => #{value}"
-        function_spec[name.to_sym] = value
+        (match, name, value) = %r{@(.*):\s*(.*)\s*\r}.match(tag).to_a
+        function_spec[name] = value
     }
-
-    puts "=========================================================="
 
     spec.push(function_spec)
 
 }
 
-puts spec.inspect
+File.write(specfile, "#{spec.to_json}\n")
+puts "#{specfile} written."
