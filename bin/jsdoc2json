@@ -18,8 +18,7 @@ File.read(ARGV[0]).scan(%r{(/\*\*.*?\*/.*?function.*?\n)}m).flatten.each{ |funct
     function_spec = {}
 
     # get comment_block and function_signature
-    (
-    match, 
+    ( _, 
     comment_block, 
     function_signature
     ) = %r{(/\*\*.*?\*/)\s*(.*?)\s*\{}m.match(function_code).to_a
@@ -33,13 +32,13 @@ File.read(ARGV[0]).scan(%r{(/\*\*.*?\*/.*?function.*?\n)}m).flatten.each{ |funct
         %r{(\w+)\s*=\s*function\s*\((.*)\)} : 
         %r{function\s*(\w+)\s*\((.*)\)} 
     )
-    (match, name, args) = re.match(function_signature).to_a
+    (_, name, args) = re.match(function_signature).to_a
     function_spec["signame"] = name 
     function_spec["sigargs"] = args
 
-    # Read jsdoc tags
+    # Scan jsdoc tags
     comment_block.scan(/(@.*?\n)/).flatten.each { |tag|
-        (match, name, value) = %r{@(.*):\s*(.*)\s*\r}.match(tag).to_a
+        (_, name, value) = %r{@(.*):\s*(.*)\s*\r}.match(tag).to_a
         function_spec[name] = value
     }
 
