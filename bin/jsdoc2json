@@ -11,10 +11,14 @@ end
 
 puts "Reading JSDoc.."
 
-spec = []
+spec = JSON.parse(File.read("analysis.json"))
+spec[:jsdoc] = [];
+
+sourcefile = ARGV[0]
+(sourcecode = File.read(sourcefile)) or (abort("Can't open #{sourcefile}"))
 
 # For each function found..
-File.read(ARGV[0]).scan(%r{(/\*\*.*?\*/.*?function.*?\n)}m).flatten.each{ |function_code|
+sourcecode.scan(%r{(/\*\*.*?\*/.*?function.*?\n)}m).flatten.each{ |function_code|
     function_spec = {}
 
     # get comment_block and function_signature
@@ -42,9 +46,9 @@ File.read(ARGV[0]).scan(%r{(/\*\*.*?\*/.*?function.*?\n)}m).flatten.each{ |funct
         function_spec[name] = value
     }
 
-    spec.push(function_spec)
+    spec[:jsdoc].push(function_spec)
 
 }
 
-File.write(specfile, "#{spec.to_json}\n")
+File.write(specfile, "#{JSON.pretty_generate(spec)}\n")
 puts "#{specfile} written."
