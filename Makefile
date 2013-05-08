@@ -15,6 +15,9 @@ WEBDIR=/srv/www/htdocs/didoc
 # Where DIDoc lives
 PROJECT_ROOT=/home/jcarter/ditool/didoc
 
+# Where the DITOOL source code lives
+DITOOL="/cygdrive/c/TFS/Data Intelligence Tool/src/ditool/DEV"
+
 ##############################################################################
 # Default target (what happens when you just run 'make')
 
@@ -24,11 +27,15 @@ all: build publish tidy_up
 
 ##############################################################################
 
-build: analyze generate_markdown convert_to_html 
+build: kaml jsdoc generate_markdown convert_to_html 
 
-analyze:
+kaml: 
 	# Build a knowledge base of everything we can programatically discover
 	$(PROJECT_ROOT)/bin/make_spec $(PROJECT_ROOT)/bin/analysis.json
+
+jsdoc:
+	# Parse jsdoc notation in the source code
+	$(PROJECT_ROOT)/bin/jsdoc2json $(DITOOL)/api.js
 
 generate_markdown: cd
 	# Consolidate doc with analysis data
