@@ -33,9 +33,10 @@ class JSDoc
     end
 
     def name(sig)
+        puts sig
         (sig =~ /=/ ? 
             %r{(\S+)\s*=\s*function} :
-            %r{function\s*(\S+)}).match(sig).to_a[1]
+            %r{function\s*(\S+)\s*\(}).match(sig).to_a[1]
     end
 
     def args(sig)
