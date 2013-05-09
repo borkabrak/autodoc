@@ -4,6 +4,7 @@
 #   of JSDoc commentary in the given source code file.
 
 require 'json'
+require_relative 'jsdoc'
 
 specfile = "bin/analysis.json"
 
@@ -20,36 +21,16 @@ spec[:jsdoc] = [];
 sourcefile = ARGV[0]
 (sourcecode = File.read(sourcefile)) or (abort("Can't open #{sourcefile}"))
 
-# For each function found..
-sourcecode.scan(%r{(/\*\*.*?\*/.*?function.*?\n)}m).flatten.each{ |function_code|
-    function_spec = {}
+# Iterate relevant blocks of code (a jsdoc comment block and the following
+# function signature), collecting the pieces in the spec.
+sourcecode.scan(%r{(/\*\*.*?\*/.*?function.*?\n)}m).flatten.each{ |code|
 
-    # get comment_block and function_signature
-    ( _, 
-    comment_block, 
-    function_signature
-    ) = %r{(/\*\*.*?\*/)\s*(.*?)\s*\{}m.match(function_code).to_a
-    function_spec["signature"] = function_signature
-
-    # Get the function name and arguments FROM THE SIGNATURE.
-    #   -This represents a decision to grant primacy to the function signature
-    #    over the jsdoc commentary
-    re = ( 
-        function_signature =~ /=/ ? 
-        %r{(\w+)\s*=\s*function\s*\((.*)\)} : 
-        %r{function\s*(\w+)\s*\((.*)\)} 
-    )
-    (_, name, args) = re.match(function_signature).to_a
-    function_spec["signame"] = name 
-    function_spec["sigargs"] = args
-
-    # Scan jsdoc tags
-    comment_block.scan(/(@.*?\n)/).flatten.each { |tag|
-        (_, name, value) = %r{@(.*):\s*(.*)\s*\r}.match(tag).to_a
-        function_spec[name] = value
-    }
-
-    spec[:jsdoc].push(function_spec)
+    spec[:jsdoc].push({ 
+        :signature => function_signature(code),
+        :name => name(function_signature(code)),
+        :args => args(function_signature(code)),
+        :tags => tags(comment_block(code))
+    })
 
 }
 
