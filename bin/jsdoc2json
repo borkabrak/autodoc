@@ -4,7 +4,7 @@
 #   of JSDoc commentary in the given source code file.
 
 require 'json'
-require_relative 'jsdoc'
+require_relative 'jsdoclib'
 
 specfile = "bin/analysis.json"
 
