@@ -1,6 +1,6 @@
 body {
     
-    background-color: #458;
+    background-color: #844;
     font-family: sans-serif;
     font-size: 1.1em;
 
@@ -17,9 +17,8 @@ ul {
 a, a:visited {
     margin:0.2em;
     padding:0.1em;
-    color: #127;
+    color: #00f;
     -webkit-transition: all 0.15s ease-in-out;
-    text-decoration: none;
 }
 
 a:hover {
