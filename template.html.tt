@@ -8,11 +8,7 @@
     </head>
     <body>
         <div class='nav-menu text-container'>
-            <a href='#' class='back'>&lt;&lt; Back</a>
-            --
-            <a href='index.html'>Index</a>
-            --
-            <a href='README.html'>HELP/HOWTO</a>
+        [% INCLUDE $menu %]
         </div>
         <div class='content text-container'>
         <h1>[% pagename %]</h1>

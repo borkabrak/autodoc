@@ -1,5 +1,6 @@
 {
-    "name" : "DIDoc",
-    "projectName" : "DITool",
-    "version" : "Development Site"
+    "name"          : "DIDoc",
+    "projectName"   : "DITool",
+    "version"       : "Development Site",
+    "menu"          : "menu.html.tt"
 }
