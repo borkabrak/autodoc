@@ -1,5 +1,13 @@
-<a href='#' class='back'>&lt;&lt; Back</a>
---
 <a href='index.html'>Index</a>
---
+<br />
 <a href='README.html'>HELP/HOWTO</a>
+
+<h5>Functions</h5>
+
+<hr />
+
+<ul>
+[% FOREACH function IN jsdoc %]
+    <li>[% function.name %]
+[% END %]
+</ul>
