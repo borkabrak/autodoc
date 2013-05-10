@@ -7,13 +7,13 @@
         <title>DiTool Documentation -- [% pagename %]</title>
     </head>
     <body>
-        <span class='nav-menu text-container'>
-            <span > <a href='#' class='back'>&lt;&lt; Back</a> </span>
+        <div class='nav-menu text-container'>
+            <a href='#' class='back'>&lt;&lt; Back</a>
             --
-            <span > <a href='index.html'>Index</a> </span>
+            <a href='index.html'>Index</a>
             --
-            <span  id="help"> <a href='README.html'>HELP/HOWTO</a> </span>
-        </span>
+            <a href='README.html'>HELP/HOWTO</a>
+        </div>
         <div class='content text-container'>
         <h1>[% pagename %]</h1>
         <hr />
