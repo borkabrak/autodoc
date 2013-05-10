@@ -19,7 +19,8 @@ PROJECT_ROOT=/home/jcarter/ditool/didoc
 DITOOL="/cygdrive/c/TFS/Data Intelligence Tool/src/ditool/DEV"
 
 ##############################################################################
-# Default target (what happens when you just run 'make')
+# Default target (what happens when you just run:
+#    $ make
 
 
 all: build publish tidy_up
@@ -30,19 +31,19 @@ all: build publish tidy_up
 build: kaml jsdoc generate_markdown convert_to_html 
 
 kaml: 
-	# Analyze KAML elements
+	# [KAML elements] => [spec data]
 	$(PROJECT_ROOT)/bin/make_spec $(PROJECT_ROOT)/analysis.json
 
 jsdoc:
-	# Parse jsdoc notation in the source code
+	# [JSDoc comments] => [spec data]
 	$(PROJECT_ROOT)/bin/jsdoc2json $(DITOOL)/api.js
 
 generate_markdown: cd
-	# Consolidate doc with analysis data
+	# [spec data] + *.mkd => *.markdown
 	$(PROJECT_ROOT)/bin/ttk2markdown doc/*.mkd
 
 convert_to_html:
-	# Convert the files
+	# *.markdown => *.html
 	$(PROJECT_ROOT)/bin/markdown2html $(PROJECT_ROOT)/*.markdown
 
 publish:
