@@ -10,7 +10,7 @@ use File::Basename;
 use Template;
 
 # CONFIG
-my $template_file = "bin/html_template.tt";
+my $template_file = "html_template.tt";
 
 print "Converting markdown files to HTML..\n";
 my $tt = Template->new;

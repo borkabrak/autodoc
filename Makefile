@@ -30,8 +30,8 @@ all: build publish tidy_up
 build: kaml jsdoc generate_markdown convert_to_html 
 
 kaml: 
-	# Build a knowledge base of everything we can programatically discover
-	$(PROJECT_ROOT)/bin/make_spec $(PROJECT_ROOT)/bin/analysis.json
+	# Analyze KAML elements
+	$(PROJECT_ROOT)/bin/make_spec $(PROJECT_ROOT)/analysis.json
 
 jsdoc:
 	# Parse jsdoc notation in the source code
@@ -48,8 +48,8 @@ convert_to_html:
 publish:
 	# Publish the files to the web dir
 	cp $(PROJECT_ROOT)/*.html $(WEBDIR)/
-	cp $(PROJECT_ROOT)/bin/*.css $(WEBDIR)/
-	cp $(PROJECT_ROOT)/bin/*.js $(WEBDIR)/
+	cp $(PROJECT_ROOT)/*.css $(WEBDIR)/
+	cp $(PROJECT_ROOT)/*.js $(WEBDIR)/
 
 
 ##############################################################################
@@ -57,7 +57,7 @@ sloppy: build publish
 	# Publish, but leave converted files in doc directory
 
 tidy_up:
-	# Remove converted files from doc directory
+	# Remove converted files
 	rm -f $(PROJECT_ROOT)/*.html
 	rm -f $(PROJECT_ROOT)/*.markdown
 	

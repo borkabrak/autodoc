@@ -11,8 +11,8 @@ use JSON;
 use Data::Dumper;
 
 my $apifile ="/cygdrive/c/TFS/Data\ Intelligence\ Tool/src/ditool/DEV/api.js";
-my $specfile = "bin/spec.json";
-my $analysis_file = "bin/analysis.json";
+my $specfile = "spec.json";
+my $analysis_file = "analysis.json";
 my $project_dir = "doc/";
 my $json = JSON->new;
 say "Creating spec..";

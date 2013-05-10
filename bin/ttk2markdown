@@ -10,7 +10,7 @@ use Template;
 my $ttk = Template->new;
 
 # CONFIG
-my $specfile = 'bin/analysis.json';
+my $specfile = 'analysis.json';
 
 #-- BEGIN ----------------------------------------------------------------------------
 say "Applying analysis..";
