@@ -25,22 +25,26 @@ class JSDoc
     end
 
     def comment_block(code)
-        %r{(/\*\*.*?\*/)}m.match(code).to_a[1]
+        code[%r{/\*\*.*?\*/}m]
     end
 
     def function_signature(code)
-        %r{\*/\s*(.*)\s*\{}m.match(code).to_a[1]
+        code[%r{\*/\s*(.*)\s*\{}m,1]
     end
 
     def name(sig)
-        puts sig
-        (sig =~ /=/ ? 
-            %r{(\S+)\s*=\s*function} :
-            %r{function\s*(\S+)\s*\(}).match(sig).to_a[1]
+        # Okay, this one got out of hand..
+        return sig[( 
+            sig =~ /=/ ?  
+            %r{(\S+)\s*=\s*function} 
+            : 
+            %r{function\s*(\S+)\s*\(}
+            ),1
+        ]
     end
 
     def args(sig)
-        /function.*\((.*)\)/.match(sig).to_a[1].split(/\s*,\s*/)
+        sig[/function.*\((.*)\)/,1].split(/\s*,\s*/)
     end
 
     def tags(jsdoc_block)
