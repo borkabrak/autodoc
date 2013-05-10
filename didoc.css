@@ -30,7 +30,7 @@ a:hover {
 
 .text-container {
     background-color: white;
-    border: solid #289990 0.75em;
+    border: solid #000 0.2em;
 }
 
 .text-container hr {
@@ -42,7 +42,7 @@ a:hover {
 
 
 .content {
-    border-radius: 2em;
+    border-radius: 1em;
     padding: 1em;
     margin: 0 auto;
     width: 50%;
@@ -51,7 +51,7 @@ a:hover {
 .nav-menu {
     font-size: 0.8em;
     padding: 0.5em;
-    border-radius: 1em;
+    border-radius: 0.5em;
     border-width: 0.4em;
     margin: 3em;
 }
