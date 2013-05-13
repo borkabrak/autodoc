@@ -3,25 +3,26 @@
 <a href='README.html'>HELP/HOWTO</a>
 
 <h5>Functions</h5>
-
 <hr />
-
 <ul>
 [% FOREACH function IN jsdoc %]
     <li>[% function.name %]
 [% END %]
+</ul>
 <br />
 
 <h5>Elements</h5>
 <hr />
-
+<ul>
 [% FOREACH element IN elements %]
     <li><a href='[% element %].html'>[% element %]</a>
 [% END %]
+</ul>
 
 <h5>Pages</h5>
+<hr />
+<ul>
 [% FOREACH page IN otherPages %]
     <li><a href='[% page %].html'>[% page %]</a>
 [% END %]
-
 </ul>
