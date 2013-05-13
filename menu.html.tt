@@ -10,4 +10,18 @@
 [% FOREACH function IN jsdoc %]
     <li>[% function.name %]
 [% END %]
+<br />
+
+<h5>Elements</h5>
+<hr />
+
+[% FOREACH element IN elements %]
+    <li><a href='[% element %].html'>[% element %]</a>
+[% END %]
+
+<h5>Pages</h5>
+[% FOREACH page IN otherPages %]
+    <li><a href='[% page %].html'>[% page %]</a>
+[% END %]
+
 </ul>

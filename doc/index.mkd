@@ -13,14 +13,3 @@ Developer documentation for the [% projectName %] application.
 
 [Open Questions](open_questions.html)
 
-## KAML Elements
-[% FOREACH element = elements %]
-* [[% element %]]([% element %].html)
-[% END %]
-
-### Other Pages
-
-------------------------------------------------------------------------------
-[% FOREACH page = otherPages %]
-* [[% page %]]([% page %].html)
-[% END %]
