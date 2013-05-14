@@ -23,32 +23,29 @@ DITOOL="/cygdrive/c/TFS/Data Intelligence Tool/src/ditool/DEV"
 #    $ make
 
 
-all: build publish tidy_up
+all: build publish tidy
 
 
 ##############################################################################
 
-build: kaml jsdoc generate_markdown convert_to_html 
+build: analyze-kaml analyze-jsdoc process-templates
 
-kaml: 
+analyze-kaml: 
 	# [KAML elements] => [spec data]
 	$(PROJECT_ROOT)/bin/make_spec $(PROJECT_ROOT)/analysis.json
 
-jsdoc:
+analyze-jsdoc:
 	# [JSDoc comments] => [spec data]
 	$(PROJECT_ROOT)/bin/jsdoc2json $(DITOOL)/api.js
 
-generate_markdown: cd
+process-templates: cd
 	# [spec data] + *.mkd => *.markdown
-	$(PROJECT_ROOT)/bin/ttk2markdown doc/*.mkd
-
-convert_to_html:
-	# *.markdown => *.html
-	$(PROJECT_ROOT)/bin/markdown2html $(PROJECT_ROOT)/*.markdown
+	$(PROJECT_ROOT)/bin/ttk doc/*.mkd -d analysis.json -e "markdown"
 
 publish:
 	# Publish the files to the web dir
 	cp $(PROJECT_ROOT)/*.html $(WEBDIR)/
+	cp $(PROJECT_ROOT)/*.markdown $(WEBDIR)/
 	cp $(PROJECT_ROOT)/*.css $(WEBDIR)/
 	cp $(PROJECT_ROOT)/*.js $(WEBDIR)/
 
@@ -57,16 +54,16 @@ publish:
 sloppy: build publish
 	# Publish, but leave converted files in doc directory
 
-tidy_up:
+tidy:
 	# Remove converted files
-	rm -f $(PROJECT_ROOT)/*.html
 	rm -f $(PROJECT_ROOT)/*.markdown
 	
-clean: tidy_up
+clean: tidy
 	# Remove all published files
 	rm -f $(WEBDIR)/*.html
 	rm -f $(WEBDIR)/*.css
 	rm -f $(WEBDIR)/*.js
+	rm -f $(WEBDIR)/*.markdown
 
 cd:
 	#switch to project home dir
