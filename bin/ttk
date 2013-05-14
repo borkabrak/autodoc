@@ -16,6 +16,7 @@ use strict;
 use 5.012;
 use JSON;
 use Getopt::Long;
+use File::Basename;
 use Template;
 my $ttk = Template->new;
 
@@ -23,7 +24,7 @@ my $ttk = Template->new;
 
 =head1 DESCRIPTION
 
-Process each input file through Template Toolkit 2, writing processed files to disk.
+Process each input file through Template Toolkit 2, writing processed files to the current directory.
 
 -d, --datafile   
 
@@ -42,9 +43,17 @@ my $datafile;
 
 =over
 
-To get the output file name, the final extension on
-the input file is removed.  If the -e option is given a value, it will be
-appended to the output file.
+The extension to write to.  If no extension is given, the original file's extension is dropped.
+
+For example, running:
+
+    ttk -e 'markdown' file.mkd
+
+will result in a file being created with the name 'file.markdown', while:
+
+    ttk file.mkd
+
+will create, simply, 'file'.
 
 =back
 
@@ -68,7 +77,8 @@ close DATA;
 for (@ARGV) {
     chomp;
 
-    my ($basename) = ($_ =~ /(.*)(\..*)/);
+    my ($basename, $ex) = ($_ =~ /(.*)(\..*)/);
+    my $basename = fileparse($basename, $ex);
     my $outfile = $basename . ($extension ? ".$extension" : "");
     say "$_ -> $outfile";
 
