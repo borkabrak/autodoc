@@ -1,0 +1,86 @@
+#!/usr/bin/env perl
+
+=pod
+
+=head1 NAME
+
+Process templates with Template Toolkit 2
+
+=head1 SYNOPSIS
+
+ttk templatefile [templatefile] ...
+
+=cut
+
+use strict;
+use 5.012;
+use JSON;
+use Getopt::Long;
+use Template;
+my $ttk = Template->new;
+
+=pod
+
+=head1 DESCRIPTION
+
+Process each input file through Template Toolkit 2, writing processed files to disk.
+
+-d, --datafile   
+
+=over
+
+File containing JSON data to use for interpolation into the template files.
+
+=back
+
+=cut
+my $datafile;
+
+=pod
+
+-e, --extension
+
+=over
+
+To get the output file name, the final extension on
+the input file is removed.  If the -e option is given a value, it will be
+appended to the output file.
+
+=back
+
+=cut
+my $extension;
+
+GetOptions(
+    "datafile=s" => \$datafile,
+    "extension=s" => \$extension
+);
+
+#-- BEGIN ----------------------------------------------------------------------------
+say "Processing templates..";
+
+# Get spec data
+open DATA, $datafile or die "Can't find data to interpolate: $datafile :$!";
+my $data = decode_json(join('',<DATA>));
+close DATA;
+
+# Do template processing on each file
+for (@ARGV) {
+    chomp;
+
+    my ($basename) = ($_ =~ /(.*)(\..*)/);
+    my $outfile = $basename . ($extension ? ".$extension" : "");
+    say "$_ -> $outfile";
+
+    $ttk->process( $_, $data, $outfile) || die $ttk->error();
+}
+
+say "..Done";
+
+=pod 
+
+=head1 BUGS
+
+* The input file must have an extension.
+
+=cut
