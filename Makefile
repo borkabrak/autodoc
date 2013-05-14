@@ -28,7 +28,7 @@ all: build publish tidy
 
 ##############################################################################
 
-build: analyze-kaml analyze-jsdoc process-templates
+build: analyze-kaml analyze-jsdoc process-templates convert-to-html make-index
 
 analyze-kaml: 
 	# [KAML elements] => [spec data]
@@ -42,10 +42,16 @@ process-templates: cd
 	# [spec data] + *.mkd => *.markdown
 	$(PROJECT_ROOT)/bin/ttk doc/*.mkd -d analysis.json -e "markdown"
 
+convert-to-html:
+	# Convert *.markdown files to html
+	$(PROJECT_ROOT)/bin/markdown2html *.markdown
+	
+make-index:
+	$(PROJECT_ROOT)/bin/ttk index.html.tt -d analysis.json
+
 publish:
 	# Publish the files to the web dir
 	cp $(PROJECT_ROOT)/*.html $(WEBDIR)/
-	cp $(PROJECT_ROOT)/*.markdown $(WEBDIR)/
 	cp $(PROJECT_ROOT)/*.css $(WEBDIR)/
 	cp $(PROJECT_ROOT)/*.js $(WEBDIR)/
 
@@ -57,13 +63,13 @@ sloppy: build publish
 tidy:
 	# Remove converted files
 	rm -f $(PROJECT_ROOT)/*.markdown
+	rm -f $(PROJECT_ROOT)/*.html
 	
 clean: tidy
 	# Remove all published files
 	rm -f $(WEBDIR)/*.html
 	rm -f $(WEBDIR)/*.css
 	rm -f $(WEBDIR)/*.js
-	rm -f $(WEBDIR)/*.markdown
 
 cd:
 	#switch to project home dir

@@ -12,7 +12,6 @@ use File::Slurp;
 use JSON;
 
 # CONFIG
-my $template_file = "template.html.tt";
 my $specfile = "analysis.json";
 
 my $spec = decode_json(read_file($specfile)) or die "Can't read $specfile:$!";
@@ -20,6 +19,7 @@ my $spec = decode_json(read_file($specfile)) or die "Can't read $specfile:$!";
 print "Converting markdown files to HTML..\n";
 my $tt = Template->new;
 foreach (@ARGV){
+
     # Get HTML file name
     my ($basename) = fileparse($_, ".markdown");
 	my $outfile = "$basename.html";
@@ -28,21 +28,15 @@ foreach (@ARGV){
         next;
     };
 
+	say "$_ => $outfile";
+
     # Get contents of markdown file
     open my $input, $_;
     my $content = markdown(join '', <$input>);
     close $input;
 
-    # Assemble data and process template into HTML
-	say "$_ => $outfile\n";
+    # Write HTML
     open my $output, ">$outfile";
-    $spec->{pagename} = $basename;
-    $spec->{content} = $content;
-    $tt->process(
-        $template_file, 
-        $spec,
-        $output
-    ) or die "Template Error: " . $tt->error();
-
+    print $output $content;
     close $output;
 }
