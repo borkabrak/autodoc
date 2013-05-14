@@ -36,16 +36,16 @@ a:hover {
 }
 
 
-.content {
+#content {
+    position:relative;
     border-radius: 1em;
     padding: 1em;
-    margin: 0 auto;
     width: 50%;
     height: 100%;
 }
 
 .nav-menu {
-    float: left;
+    float: right;
     font-size: 0.8em;
     padding: 0.5em;
     border-radius: 0.5em;

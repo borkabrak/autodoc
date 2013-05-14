@@ -10,7 +10,7 @@
         <div class='nav-menu text-container'>
         [% INCLUDE $menu %]
         </div>
-        <div class='content text-container'>
+        <div class='text-container' id="content">
         </div>
     </body>
 </html>
