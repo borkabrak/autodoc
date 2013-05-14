@@ -16,4 +16,14 @@ $(function(){
             return false; // Elide normal link behaviour
         }
     );
+
+
+    // Load initial home page
+    $.get(
+        "homepage.html",
+        function(data){
+            $(".content").html(data);
+        }
+    );
+
 });
