@@ -4,16 +4,17 @@
         <link type="text/css" rel="stylesheet" href="didoc.css" />
         <script type="text/javascript" src="../scripts/jquery-1.9.1.js"></script>
         <script type="text/javascript" src="didoc.js"></script>
-        <title>DiTool Documentation -- [% pagename %]</title>
+        <script type="text/javascript" src="Markdown.Converter.js"></script>
+        <title>DiTool Documentation</title>
     </head>
     <body>
         <div class='nav-menu text-container'>
-        [% INCLUDE $menu %]
+        [% INCLUDE 'menu.html.tt' %]
         </div>
         <div class='content text-container'>
-        <h1>[% pagename %]</h1>
+        <h1>Index</h1>
         <hr />
-        [% content %]
+        Hello World
         </div>
     </body>
 </html>
