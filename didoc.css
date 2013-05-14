@@ -56,3 +56,8 @@ a:hover {
 .nav-menu ul {
     list-style-type: none;
 }
+
+.error {
+    color: red;
+    font-family: monospace;
+}

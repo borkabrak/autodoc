@@ -1,5 +1,16 @@
-Index
+[% projectName %] Documentation ([% version %])
 ==============================================================================
+---
+
+Developer documentation for the [% projectName %] application.
+
+## Recommended Topics
 
 ------------------------------------------------------------------------------
-Hello World
+[Understanding the coordinate system](understanding_the_coordinate_system.html)
+
+[Building Controls](BuildingControls.html)
+
+[Open Questions](open_questions.html)
+
+[This link goes nowhere](non_existent_file.html)
