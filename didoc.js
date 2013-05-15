@@ -6,6 +6,12 @@ $(function(){
         'a',
         function(event){
 
+            // If the link goes off-site, don't interfere.
+            // FIXME: This is a really hacky way to do it..
+            if (event.currentTarget.href.match("ushen048w") === null){;
+                return true;
+            }
+
             $.ajax({ 
 
                 url: 
@@ -40,11 +46,11 @@ $.prototype.change_to = function(data){
     // Change content of an element in a groovy way.
     var me = this;
 
-    me.slideUp(
-        300,
+    me.fadeOut(
+        0,
         function(){
             me.html(data);
-            me.slideDown(1000);
+            me.fadeIn();
         }
     );
 };
