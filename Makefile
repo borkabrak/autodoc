@@ -54,6 +54,7 @@ publish:
 	cp $(PROJECT_ROOT)/*.html $(WEBDIR)/
 	cp $(PROJECT_ROOT)/*.css $(WEBDIR)/
 	cp $(PROJECT_ROOT)/*.js $(WEBDIR)/
+	cp $(PROJECT_ROOT)/*.png $(WEBDIR)/
 
 
 ##############################################################################
@@ -70,6 +71,7 @@ clean: tidy
 	rm -f $(WEBDIR)/*.html
 	rm -f $(WEBDIR)/*.css
 	rm -f $(WEBDIR)/*.js
+	rm -f $(WEBDIR)/*.png
 
 cd:
 	#switch to project home dir

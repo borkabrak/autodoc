@@ -23,6 +23,10 @@ a:hover {
     color: white;
 }
 
+a[href^=http]:after {
+    content: url(offsite-icon.png);
+}
+
 .text-container {
     background-color: white;
     border: solid #000 0.2em;
