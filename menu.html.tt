@@ -1,6 +1,8 @@
 <a href='homepage.html'>Index</a>
 <br />
 <a href='README.html'>HELP/HOWTO</a>
+<br />
+<button id='back' type='button'>&lt;&lt; Back</button>
 
 <h5>Functions</h5>
 <hr />
@@ -9,7 +11,6 @@
     <li>[% function.name %]
 [% END %]
 </ul>
-<br />
 
 <h5>Pages</h5>
 <hr />

@@ -3,6 +3,7 @@
     <head>
         <link type="text/css" rel="stylesheet" href="didoc.css" />
         <script type="text/javascript" src="../scripts/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="nav-history.js"></script>
         <script type="text/javascript" src="didoc.js"></script>
         <title>DiTool Documentation</title>
     </head>
