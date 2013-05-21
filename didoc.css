@@ -46,6 +46,7 @@ a[href^=http]:after {
     padding: 1em;
     width: 50%;
     height: 100%;
+    margin-left: 15%;
 }
 
 .nav-menu {
