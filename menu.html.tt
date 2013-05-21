@@ -3,6 +3,7 @@
 <a href='README.html'>HELP/HOWTO</a>
 <br />
 <button id='back' type='button'>&lt;&lt; Back</button>
+<button id='forward' type='button'>Forward &gt;&gt;</button>
 
 <h5>Functions</h5>
 <hr />

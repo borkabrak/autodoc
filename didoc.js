@@ -2,27 +2,23 @@ $(function(){
 
     var nav = new NavHistory($("#content"));
 
-    // Ajax-y behaviour for links
+    // Ajax-y behaviour for local links
     $(document).on( 'click',
-
         'a:not([href^=http])',
-
         function(event){
             nav.newpage(event.currentTarget.pathname);
-            return false; // Elide normal link behaviour
-        }
-    );
+            return false; });
 
     $(document).on( 'click',
-
         'button#back',
+        function(){ nav.back(); });
 
-        function(){ nav.back(); }
-    );
+    $(document).on( 'click',
+        'button#forward',
+        function(){ nav.forward(); });
 
-    // Load initial home page
+    // Initially, load home page
     nav.newpage("/didoc/homepage.html");
-
 
 });
 

@@ -1,5 +1,5 @@
 var NavHistory = function(elem){
-    my = this;
+    var my = this;
 
     my.elem = $(elem);  // Content container
 
@@ -12,7 +12,7 @@ var NavHistory = function(elem){
     };
 
     my.forward = function(){
-        (my.current <= my.history.length - 1) && (my.current += 1);
+        (my.current < my.history.length - 1) && (my.current += 1);
         go(my.history[my.current])
     };
 
