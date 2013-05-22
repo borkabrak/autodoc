@@ -2,5 +2,7 @@
     "name"          : "DIDoc",
     "projectName"   : "DITool",
     "version"       : "Development Site",
-    "menu"          : "menu.html.tt"
+    "menu"          : "menu.html.tt",
+    "header"        : "header.html.tt",
+    "navbar"        : "navbar.html.tt"
 }

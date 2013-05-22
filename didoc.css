@@ -1,9 +1,7 @@
 body {
-    
     background-color: #944;
     font-family: sans-serif;
     font-size: 1.1em;
-
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -27,9 +25,24 @@ a[href^=http]:after {
     content: url(offsite-icon.png);
 }
 
+#frame {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+}
+
+.navbar {
+}
+
 .text-container {
-    background-color: white;
+    background-color: #fff;
     border: solid #000 0.2em;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 1em;
 }
 
 .text-container hr {
@@ -39,23 +52,17 @@ a[href^=http]:after {
     border-radius: 0.5em;
 }
 
-
 #content {
     position:relative;
-    border-radius: 1em;
-    padding: 1em;
     width: 50%;
     height: 100%;
-    margin-left: 15%;
+    background-color: #fff;
 }
 
 .nav-menu {
     float: right;
     font-size: 0.8em;
-    padding: 0.5em;
-    border-radius: 0.5em;
     border-width: 0.4em;
-    margin: 3em;
 }
 
 .nav-menu ul {

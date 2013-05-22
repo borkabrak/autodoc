@@ -1,9 +1,3 @@
-[% projectName %] Documentation ([% version %])
-==============================================================================
----
-
-Developer documentation for the [% projectName %] application.
-
 ## Recommended Topics
 
 ------------------------------------------------------------------------------

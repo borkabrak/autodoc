@@ -8,10 +8,12 @@
         <title>DiTool Documentation</title>
     </head>
     <body>
-        <div class='nav-menu text-container'>
-        [% INCLUDE $menu %]
-        </div>
-        <div class='text-container' id="content">
+        <div id='frame'>
+            [% INCLUDE $header %]
+            [% INCLUDE $navbar %]
+            [% INCLUDE $menu %]
+            <div class='text-container' id="content">
+            </div>
         </div>
     </body>
 </html>

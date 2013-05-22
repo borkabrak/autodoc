@@ -10,11 +10,11 @@ $(function(){
             return false; });
 
     $(document).on( 'click',
-        'button#back',
+        '.back',
         function(){ nav.back(); });
 
     $(document).on( 'click',
-        'button#forward',
+        '.forward',
         function(){ nav.forward(); });
 
     // Initially, load home page
