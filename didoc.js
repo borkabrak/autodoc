@@ -1,24 +1,32 @@
 $(function(){
 
-    var nav = new NavHistory($("#content"));
+    var didoc = new Didoc($("#content"));
+    var menu = $(".nav-menu");
+    menu.css("display","none");
 
     // Ajax-y behaviour for local links
     $(document).on( 'click',
         'a:not([href^=http])',
         function(event){
-            nav.newpage(event.currentTarget.pathname);
+            didoc.newpage(event.currentTarget.pathname);
             return false; });
 
     $(document).on( 'click',
         '.back',
-        function(){ nav.back(); });
+        function(){ didoc.back(); });
 
     $(document).on( 'click',
         '.forward',
-        function(){ nav.forward(); });
+        function(){ didoc.forward(); });
+
+    $(document).on( 'click',
+        '.menu',
+        function(){
+            menu.slideToggle();
+    });
 
     // Initially, load home page
-    nav.newpage("/didoc/homepage.html");
+    didoc.newpage("/didoc/homepage.html");
 
 });
 

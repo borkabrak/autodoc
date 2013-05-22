@@ -3,4 +3,5 @@
     <button class='forward' type='button'>Forward &gt;&gt;</button>
     <a href='homepage.html'>Index</a>
     <a href='README.html'>HELP/HOWTO</a>
+    <button class='menu'>Menu</button>
 </div>

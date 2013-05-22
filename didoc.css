@@ -69,6 +69,11 @@ a[href^=http]:after {
     list-style-type: none;
 }
 
+button.menu {
+    width: 10em;
+    float: right;
+}
+
 .error {
     color: red;
     font-family: monospace;

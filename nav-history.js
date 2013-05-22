@@ -1,4 +1,4 @@
-var NavHistory = function(elem){
+var Didoc = function(elem){
     var my = this;
 
     my.elem = $(elem);  // Content container
