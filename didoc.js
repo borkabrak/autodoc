@@ -19,11 +19,19 @@ $(function(){
         '.forward',
         function(){ didoc.forward(); });
 
-    $(document).on( 'click',
-        '.menu',
-        function(){
-            menu.slideToggle();
-    });
+    $('.menu').mouseenter(
+        function(event){ 
+            if ($(event.currentTarget).hasClass("collapsed")) {
+                $(event.currentTarget).addClass("expanded");
+                $(event.currentTarget).removeClass("collapsed");
+                menu.slideDown(200); 
+            } else {
+                $(event.currentTarget).addClass("collapsed");
+                $(event.currentTarget).removeClass("expanded");
+                menu.slideUp(200); 
+            }
+        }
+    );
 
     // Initially, load home page
     didoc.newpage("/didoc/homepage.html");

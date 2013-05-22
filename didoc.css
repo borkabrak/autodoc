@@ -34,9 +34,6 @@ a[href^=http]:after {
     text-align: center;
 }
 
-.navbar {
-}
-
 .text-container {
     background-color: #fff;
     border: solid #000 0.2em;
@@ -59,6 +56,7 @@ a[href^=http]:after {
     background-color: #fff;
 }
 
+
 .nav-menu {
     float: right;
     font-size: 0.8em;
@@ -69,9 +67,21 @@ a[href^=http]:after {
     list-style-type: none;
 }
 
-button.menu {
+span.menu {
     width: 10em;
     float: right;
+    background-color: #cfc;
+    border-radius: 1em;
+    text-align: center;
+    padding: 0.3em;
+}
+
+.collapsed:after {
+    content: "\21d2";
+}
+
+.expanded:after {
+    content: "\21d3";
 }
 
 .error {
