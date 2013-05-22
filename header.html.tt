@@ -1,5 +1,4 @@
 <div class='header text-container'>
 <h1>[% projectName %] Documentation ([% version %])</h1>
-<br />
 <p>Developer documentation for the [% projectName %] application
 </div>
