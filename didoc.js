@@ -1,40 +1,66 @@
-$(function(){
+var Didoc = function(elem){
+    var my = this;
 
-    var didoc = new Didoc($("#content"));
-    var menu = $(".nav-menu");
-    menu.css("display","none");
+    my.elem = $(elem);  // Content container
 
-    // Ajax-y behaviour for local links
-    $(document).on( 'click',
-        'a:not([href^=http])',
-        function(event){
-            didoc.newpage(event.currentTarget.pathname);
-            return false; });
+    my.history = [];   
+    my.current = 0;
 
-    $(document).on( 'click',
-        '.back',
-        function(){ didoc.back(); });
+    my.back = function(){
+        (my.current > 0) && (my.current -= 1);
+        go(my.history[my.current]);
+    };
 
-    $(document).on( 'click',
-        '.forward',
-        function(){ didoc.forward(); });
+    my.forward = function(){
+        (my.current < my.history.length - 1) && (my.current += 1);
+        go(my.history[my.current])
+    };
 
-    $('.menu').mouseenter(
-        function(event){ 
-            if ($(event.currentTarget).hasClass("collapsed")) {
-                $(event.currentTarget).addClass("expanded");
-                $(event.currentTarget).removeClass("collapsed");
-                menu.slideDown(200); 
-            } else {
-                $(event.currentTarget).addClass("collapsed");
-                $(event.currentTarget).removeClass("expanded");
-                menu.slideUp(200); 
+    my.newpage = function(url){
+        go(url,function(){
+            my.history = my.history.slice(0,my.current + 1);
+            my.history.push(url);
+            my.current = my.history.length - 1;
+        })
+    }
+
+    // private
+    var go = function(url, success){
+
+        $.ajax({ url: url,
+
+            success: function(data, status, xhr){
+                change_to(data); 
+                if (success){
+                    success.call();
+                }
+            },
+
+            error: function(xhr){
+                change_to(errmsg(xhr)); 
+            } });
+
+    };
+
+    var change_to = function(data){
+        // Manage content transistion
+        my.elem.fadeOut(
+            0,
+            function(){
+                my.elem.html(data);
+                my.elem.fadeIn();
             }
+        );
+    };
+
+    var errmsg = function(xhr){
+        switch (xhr.status){
+        case 404:
+            return $("<p><span class='error'>That file does not seem to exist</span><br /><button class='back' type='button'>&lt;&lt; Back</button>");
+            break;
+        default:
+            return $("<p><span class='error'>There was an error handling that click.  My fault.  Yell at me about it at jcarter@str.com</span>")
         }
-    );
+    }
 
-    // Initially, load home page
-    didoc.newpage("/didoc/homepage.html");
-
-});
-
+};
