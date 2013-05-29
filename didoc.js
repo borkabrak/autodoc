@@ -3,29 +3,9 @@ var Didoc = function(elem){
 
     my.elem = $(elem);  // Content container
 
-    my.history = [];   
-    my.current = 0;
+    my.go = function(url, success){
 
-    my.back = function(){
-        (my.current > 0) && (my.current -= 1);
-        go(my.history[my.current]);
-    };
-
-    my.forward = function(){
-        (my.current < my.history.length - 1) && (my.current += 1);
-        go(my.history[my.current])
-    };
-
-    my.newpage = function(url){
-        go(url,function(){
-            my.history = my.history.slice(0,my.current + 1);
-            my.history.push(url);
-            my.current = my.history.length - 1;
-        })
-    }
-
-    // private
-    var go = function(url, success){
+        console.log("go('%s')",url);
 
         $.ajax({ url: url,
 
@@ -42,6 +22,7 @@ var Didoc = function(elem){
 
     };
 
+    // private
     var change_to = function(data){
         // Manage content transistion
         my.elem.fadeOut(

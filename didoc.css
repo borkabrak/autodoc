@@ -1,11 +1,11 @@
 body {
     background-color: #944;
-    font-family: sans-serif;
-    font-size: 1.1em;
+    font-family: "PT Sans Caption", sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
     color: #0c1146;
+    text-shadow: 0.1em 0.1em 0.2em #ccc;
 }
 
 a, a:visited {
@@ -32,6 +32,7 @@ a[href^=http]:after {
 
 .header {
     text-align: center;
+    cursor: pointer;
 }
 
 .text-container {
@@ -67,21 +68,32 @@ a[href^=http]:after {
     list-style-type: none;
 }
 
-span.menu {
+.menu {
     width: 10em;
     float: right;
-    background-color: #cfc;
+    background-color: #d88;
     border-radius: 1em;
     text-align: center;
+    text-shadow: 0.1em 0.1em 0.2em #555;
+    border: outset;
     padding: 0.3em;
+    cursor: pointer;
+}
+
+.menu:hover {
+    background-color: #fcc;
+}
+
+.menu:active {
+    border: inset;
 }
 
 .collapsed:after {
-    content: "\21d2";
+    content: " \21d2";
 }
 
 .expanded:after {
-    content: "\21d3";
+    content: " \21d3";
 }
 
 .error {

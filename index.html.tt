@@ -2,6 +2,7 @@
 <html>
     <head>
         <link type="text/css" rel="stylesheet" href="didoc.css" />
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans+Caption">
         <script type="text/javascript" src="../scripts/jquery-1.9.1.js"></script>
         <script type="text/javascript" src="didoc.js"></script>
         <title>DiTool Documentation</title>
@@ -10,7 +11,7 @@
         <div id='frame'>
             [% INCLUDE $header %]
             [% INCLUDE $navbar %]
-            [% INCLUDE $menu %]
+            [% INCLUDE $menu %] 
             <div class='text-container' id="content">
             </div>
         </div>
@@ -19,7 +20,7 @@
 
     $(function(){
 
-        var didoc = new Didoc($("#content"));
+        didoc = new Didoc($("#content"));
         var menu = $(".nav-menu");
         menu.css("display","none");
 
@@ -27,18 +28,12 @@
         $(document).on( 'click',
             'a:not([href^=http])',
             function(event){
-                didoc.newpage(event.currentTarget.pathname);
-                return false; });
+                var url = event.currentTarget.pathname;
+                didoc.go(url);
+                event.preventDefault();
+            });
 
-        $(document).on( 'click',
-            '.back',
-            function(){ didoc.back(); });
-
-        $(document).on( 'click',
-            '.forward',
-            function(){ didoc.forward(); });
-
-        $('.menu').mouseenter(
+        $('.menu').on('click',
             function(event){ 
                 if ($(event.currentTarget).hasClass("collapsed")) {
                     $(event.currentTarget).addClass("expanded");
@@ -53,7 +48,11 @@
         );
 
         // Initially, load home page
-        didoc.newpage("/didoc/homepage.html");
+        didoc.go("/didoc/homepage.html");
+
+        $(document).on( 'click', '.header', function(event){
+            location.href = '/didoc/';
+        });
 
     });
 
