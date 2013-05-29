@@ -11,9 +11,6 @@ var Didoc = function(elem){
 
             success: function(data, status, xhr){
                 change_to(data); 
-                if (success){
-                    success.call();
-                }
             },
 
             error: function(xhr){

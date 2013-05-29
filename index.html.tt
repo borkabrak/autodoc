@@ -30,8 +30,17 @@
             function(event){
                 var url = event.currentTarget.pathname;
                 didoc.go(url);
+                history.pushState(null, null, url);
                 event.preventDefault();
-            });
+        });
+
+        $(window).on('popstate', function(){
+            // Both initial pageload and the back button fire 'popstate' (on
+            // Chrome and Safari, at least)
+            didoc.go(
+                '/didoc/' + 
+                (location.pathname.split('/').pop() || 'homepage.html'));
+        });
 
         $('.menu').on('click',
             function(event){ 
@@ -46,9 +55,6 @@
                 }
             }
         );
-
-        // Initially, load home page
-        didoc.go("/didoc/homepage.html");
 
         $(document).on( 'click', '.header', function(event){
             location.href = '/didoc/';
