@@ -1,5 +1,4 @@
 <div class='text-container navbar'>
     <a href='homepage.html'>Index</a>
     <a href='README.html'>HELP/HOWTO</a>
-    <span class='menu collapsed'> <span>Menu</span></span>
 </div>

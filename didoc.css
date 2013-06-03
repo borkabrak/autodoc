@@ -57,35 +57,15 @@ a[href^=http]:after {
     background-color: #fff;
 }
 
-
-.nav-menu {
+#menu {
     float: right;
     font-size: 0.8em;
     border-width: 0.4em;
+    width: 20%;
 }
 
-.nav-menu ul {
+#menu ul {
     list-style-type: none;
-}
-
-.menu {
-    width: 10em;
-    float: right;
-    background-color: #d88;
-    border-radius: 1em;
-    text-align: center;
-    text-shadow: 0.1em 0.1em 0.2em #555;
-    border: outset;
-    padding: 0.3em;
-    cursor: pointer;
-}
-
-.menu:hover {
-    background-color: #fcc;
-}
-
-.menu:active {
-    border: inset;
 }
 
 .collapsed:after {

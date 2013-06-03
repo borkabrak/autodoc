@@ -1,27 +1,31 @@
-<div class='nav-menu text-container'>
-    <h4>Menu</h4>
-    <hr />
-    <h5>Functions</h5>
-    <hr />
-    <ul>
-    [% FOREACH function IN jsdoc %]
-        <li>[% function.name %]
-    [% END %]
-    </ul>
+<ul class='nav-menu text-container' id='menu'>
+<h3>Menu</h3>
 
-    <h5>Pages</h5>
-    <hr />
-    <ul>
-    [% FOREACH page IN otherPages %]
-        <li><a href='[% page %].html'>[% page %]</a>
-    [% END %]
-    </ul>
+    <li>
+        <h4>Functions</h4>
+        <ul>
+        [% FOREACH function IN jsdoc %]
+            <li>[% function.name %]
+        [% END %]
+        </ul>
+    </li>
 
-    <h5>Elements</h5>
-    <hr />
-    <ul>
-    [% FOREACH element IN elements %]
-        <li><a href='[% element %].html'>[% element %]</a>
-    [% END %]
-    </ul>
-</div>
+    <li>
+        <h4>Elements</h4>
+        <ul>
+        [% FOREACH element IN elements %]
+            <li><a href='[% element %].html'>[% element %]</a>
+        [% END %]
+        </ul>
+    </li>
+
+    <li>
+        <h4>Other Pages</h4>
+        <ul>
+        [% FOREACH page IN otherPages %]
+            <li><a href='[% page %].html'>[% page %]</a>
+        [% END %]
+        </ul>
+    </li>
+
+</ul>

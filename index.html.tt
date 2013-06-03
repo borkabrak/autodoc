@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans+Caption">
         <script type="text/javascript" src="../scripts/jquery-1.9.1.js"></script>
         <script type="text/javascript" src="didoc.js"></script>
+        <script type="text/javascript" src="jCollapsible.js"></script>
         <title>DiTool Documentation</title>
     </head>
     <body>
@@ -23,7 +24,6 @@
 
         didoc = new Didoc($("#content"));
         var menu = $(".nav-menu");
-        menu.css("display","none");
 
         // Ajax-y behaviour for local links
         $(document).on( 'click',
@@ -44,25 +44,11 @@
                 (location.pathname.split('/').pop() || 'homepage.html'));
         });
 
-
-        // Collapse/expand menu
-        $('.menu').on('click',
-            function(event){ 
-                if ($(event.currentTarget).hasClass("collapsed")) {
-                    $(event.currentTarget).addClass("expanded");
-                    $(event.currentTarget).removeClass("collapsed");
-                    menu.slideDown(200); 
-                } else {
-                    $(event.currentTarget).addClass("collapsed");
-                    $(event.currentTarget).removeClass("expanded");
-                    menu.slideUp(200); 
-                }
-            }
-        );
-
         $(document).on( 'click', '.header', function(event){
             location.href = '/didoc/';
         });
+
+        $(menu).collapsible();
 
     });
 
