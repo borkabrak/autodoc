@@ -37,11 +37,11 @@
 
         // Handle 'back' navigation
         $(window).on('popstate', function(){
-            // Both initial pageload and the back button fire 'popstate' (on
-            // Chrome and Safari, at least)
+            // handle the initial onload popstate event
             didoc.go(
-                '/didoc/' + 
-                (location.pathname.split('/').pop() || 'homepage.html'));
+                '/didoc/' + (location.pathname.split('/').pop() 
+                || 
+                'homepage.html'));
         });
 
         $(document).on( 'click', '.header', function(event){
