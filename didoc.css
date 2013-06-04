@@ -62,18 +62,15 @@ a[href^=http]:after {
     font-size: 0.8em;
     border-width: 0.4em;
     width: 20%;
+    list-style-type: none;
 }
 
 #menu ul {
     list-style-type: none;
 }
 
-.collapsed:after {
-    content: " \21d2";
-}
-
-.expanded:after {
-    content: " \21d3";
+a.jcollapsible {
+    text-decoration: none;
 }
 
 .error {
