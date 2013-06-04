@@ -48,7 +48,10 @@
             location.href = '/didoc/';
         });
 
-        $(menu).collapsible();
+        $(menu).collapsible({
+            symbolshow: "▶",
+            symbolhide: "▼"
+        });
 
     });
 
