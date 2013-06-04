@@ -1,6 +1,6 @@
-[% projectName %] Documentation ([% version %])
+DIDoc -- Documentation of the DITool project.
 ==============================================================================
----
+------------------------------------------------------------------------------
 
 Developer documentation for the [% projectName %] application.
 

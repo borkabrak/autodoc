@@ -1,6 +1,3 @@
-DIDoc -- Documentation of the DITool project.
-==============================================================================
-------------------------------------------------------------------------------
 [%#
   # Switch the TTK tags to something else for this page, so we can talk
   # about them *on* this page.  
