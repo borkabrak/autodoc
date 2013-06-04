@@ -5,8 +5,6 @@ var Didoc = function(elem){
 
     my.go = function(url, success){
 
-        console.log("go('%s')",url);
-
         $.ajax({ url: url,
 
             success: function(data, status, xhr){
@@ -34,7 +32,7 @@ var Didoc = function(elem){
     var errmsg = function(xhr){
         switch (xhr.status){
         case 404:
-            return $("<p><span class='error'>That file does not seem to exist</span><br /><button class='back' type='button'>&lt;&lt; Back</button>");
+            return $("<p><span class='error'>404 Error -- That file does not seem to exist.</span>");
             break;
         default:
             return $("<p><span class='error'>There was an error handling that click.  My fault.  Yell at me about it at jcarter@str.com</span>")
