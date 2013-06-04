@@ -57,7 +57,7 @@ a[href^=http]:after {
     background-color: #fff;
 }
 
-#menu {
+nav {
     float: right;
     font-size: 0.8em;
     border-width: 0.4em;
@@ -65,7 +65,7 @@ a[href^=http]:after {
     list-style-type: none;
 }
 
-#menu ul {
+nav ul {
     list-style-type: none;
 }
 

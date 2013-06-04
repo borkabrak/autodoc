@@ -23,7 +23,7 @@
     $(function(){
 
         didoc = new Didoc($("#content"));
-        var menu = $(".nav-menu");
+        var menu = $("nav");
 
         // Ajax-y behaviour for local links
         $(document).on( 'click',
