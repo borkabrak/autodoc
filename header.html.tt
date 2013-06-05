@@ -1,7 +1,7 @@
-<div class='header text-container'>
+<header class='text-container'>
 
     <h1>[% projectName %] Documentation</h1>
 
     <p>Developer documentation for the [% projectName %] application</p>
 
-</div>
+</header>

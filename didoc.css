@@ -30,7 +30,7 @@ a[href^=http]:after {
     margin: 0 auto;
 }
 
-.header {
+header {
     text-align: center;
     cursor: pointer;
 }
@@ -38,7 +38,6 @@ a[href^=http]:after {
 .text-container {
     background-color: #fff;
     border: solid #000 0.2em;
-    padding: 1em;
     margin: 1em;
     border-radius: 1em;
 }
@@ -54,6 +53,7 @@ a[href^=http]:after {
     position:relative;
     width: 50%;
     height: 100%;
+    padding: 1em;
     background-color: #fff;
 }
 
@@ -63,6 +63,7 @@ nav {
     border-width: 0.4em;
     width: 20%;
     list-style-type: none;
+    padding: 1.8em;
 }
 
 nav ul {
@@ -73,6 +74,7 @@ nav ul {
     background-color: #4b4b4b;
     border-color: #2b2b2b;
     list-style-type: none;
+    padding: 1em;
 }
 
 .navbar li {
@@ -87,6 +89,7 @@ nav ul {
 
 a.jcollapsible {
     text-decoration: none;
+    color: #4b4b4b;
 }
 
 .error {

@@ -44,13 +44,15 @@
                 'homepage.html'));
         });
 
-        $(document).on( 'click', '.header', function(event){
+        $('header').on( 'click', function(event){
             location.href = '/didoc/';
         });
 
         $(menu).collapsible({
             symbolshow: "▶",
-            symbolhide: "▼"
+            symbolhide: "▼",
+            xoffset: -18,
+            yoffset: -4 
         });
 
     });
