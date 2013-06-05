@@ -70,6 +70,10 @@ nav ul {
     list-style-type: none;
 }
 
+nav h4:hover {
+    color: blue;
+}
+
 .navbar {
     background-color: #4b4b4b;
     border-color: #2b2b2b;

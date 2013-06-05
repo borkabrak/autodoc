@@ -55,6 +55,12 @@
             yoffset: -4 
         });
 
+        $('nav>li>h4').click(function(event){
+            // Seems a little.. wonky to just pass the click on to what the
+            // library decided should be clickable..
+            $(event.currentTarget).prev('.jcollapsible').click();
+        });
+
     });
 
     </script>
