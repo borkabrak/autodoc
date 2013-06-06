@@ -6,12 +6,15 @@
 require 'json'
 require_relative 'jsdoc'
 
+puts "Auto-generating doc for API functions.."
+
 specfile = "analysis.json"
 
 spec = JSON.parse(File.read(specfile))
 
 # For each function listed:
 spec["jsdoc"].each do |func|
+    puts "#{func['name']}.."
     out = <<-EOF
 #{func['name']}
 ==============================================================================
@@ -22,7 +25,7 @@ spec["jsdoc"].each do |func|
 EOF
 
     File.write("doc/#{func["name"]}.mkd",out)
-    puts ">>#{out}<<"
 end
 
+puts "API docs created."
 # Profit!
