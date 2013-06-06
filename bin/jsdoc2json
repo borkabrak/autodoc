@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 #
-#   Modify the JSON specfile, adding an array of objects describing each piece
-#   of JSDoc commentary in the given source code file.
+#   Extend the JSON spec with jsdoc data from the given file.
+
 require 'json'
 require_relative 'jsdoc'
 
