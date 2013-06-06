@@ -32,7 +32,7 @@ build: analyze-kaml analyze-jsdoc process-templates convert-to-html make-index
 
 analyze-kaml: 
 	# [KAML elements] => [spec data]
-	$(PROJECT_ROOT)/bin/make_spec
+	$(PROJECT_ROOT)/bin/make_spec $(DITOOL)/api.js
 
 analyze-jsdoc:
 	# [JSDoc comments] => [spec data]

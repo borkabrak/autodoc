@@ -10,7 +10,7 @@ use File::Basename;
 use JSON;
 use Data::Dumper;
 
-my $apifile ="/cygdrive/c/TFS/Data\ Intelligence\ Tool/src/ditool/DEV/api.js";
+my $apifile = shift;
 my $specfile = "spec.json";
 my $analysis_file = "analysis.json";
 my $project_dir = "doc/";
