@@ -1,7 +1,7 @@
-<header class='text-container'>
-
+<header id='top' class='text-container'>
+    <hgroup>
     <h1>[% projectName %] Documentation</h1>
-
-    <p>Developer documentation for the [% projectName %] application</p>
+    <h2>Developer documentation for the [% projectName %] application</h2>
+    </hgroup>
 
 </header>
