@@ -23,7 +23,7 @@ DITOOL="/cygdrive/c/TFS/Data Intelligence Tool/src/ditool/DEV"
 #    $ make
 
 
-all: build publish tidy
+all: build publish clean
 
 
 ##############################################################################
@@ -61,12 +61,12 @@ publish:
 sloppy: build publish
 	# Publish, but leave converted files in doc directory
 
-tidy:
+clean:
 	# Remove converted files
 	rm -f $(PROJECT_ROOT)/*.markdown
 	rm -f $(PROJECT_ROOT)/*.html
 	
-clean: tidy
+purge: clean
 	# Remove all published files
 	rm -f $(WEBDIR)/*.html
 	rm -f $(WEBDIR)/*.css
