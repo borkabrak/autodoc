@@ -6,7 +6,7 @@
         <h4>Functions</h4>
         <ul>
         [% FOREACH function IN jsdoc %]
-            <li>[% function.name %]
+            <li><a href='[% function.name %].html'>[% function.name %]</a>
         [% END %]
         </ul>
     </li>
