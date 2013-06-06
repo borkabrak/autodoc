@@ -4,6 +4,7 @@
 %] 
 [% TAGS [- -] %]
 
+<span class='error'>This is currently out of date.</span>
 
 How to write documentation
 ==============================================================================
