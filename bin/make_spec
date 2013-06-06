@@ -25,10 +25,7 @@ if (open SPEC, $specfile) {
     warn "Spec file $specfile not found:$!";
 };
 
-# Add to the spec anything else we can find out
-##############################################################################
-
-# KAML elements
+# Analyze KAML elements
 say "Analyzing KAML elements..";
 $spec->{ elements } = find_in_file(qr/(di_\w+)/i, $apifile);
 
