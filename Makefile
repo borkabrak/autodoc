@@ -28,17 +28,17 @@ all: build publish clean
 
 ##############################################################################
 
-build: analyze-kaml analyze-jsdoc process-templates convert-to-html make-index
+build: analyze-kaml make-function-doc process-templates convert-to-html make-index
 
 analyze-kaml: 
 	# [KAML elements] => [spec data]
 	$(PROJECT_ROOT)/bin/make_spec $(DITOOL)/api.js
 
-analyze-jsdoc:
-	# [JSDoc comments] => [spec data]
-	$(PROJECT_ROOT)/bin/jsdoc2json $(DITOOL)/api.js
+make-function-doc: analyze-jsdoc
+	# Make a page for each API function
+	$(PROJECT_ROOT)/bin/make-function-doc
 
-process-templates: cd
+process-templates: cd-here
 	# [spec data] + *.mkd => *.markdown
 	$(PROJECT_ROOT)/bin/ttk doc/*.mkd -d analysis.json -e "markdown"
 
@@ -58,6 +58,10 @@ publish:
 
 
 ##############################################################################
+analyze-jsdoc: 
+	# [JSDoc comments] => [spec data]
+	$(PROJECT_ROOT)/bin/jsdoc2json $(DITOOL)/api.js
+
 sloppy: build publish
 	# Publish, but leave converted files in doc directory
 
@@ -73,6 +77,6 @@ purge: clean
 	rm -f $(WEBDIR)/*.js
 	rm -f $(WEBDIR)/*.png
 
-cd:
+cd-here:
 	#switch to project home dir
 	cd $(PROJECT_ROOT)/ 
