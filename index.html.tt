@@ -12,7 +12,7 @@
     <body>
         <div id='frame'>
             [% INCLUDE $header %]
-            [% INCLUDE $navbar %]
+            [% INCLUDE $menubar %]
             [% INCLUDE $menu %] 
             <div class='text-container' id="content">
             </div>

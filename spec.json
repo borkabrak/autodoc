@@ -4,5 +4,5 @@
     "version"       : "Development Site",
     "menu"          : "menu.html.tt",
     "header"        : "header.html.tt",
-    "navbar"        : "navbar.html.tt"
+    "menubar"        : "menubar.html.tt"
 }
