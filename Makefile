@@ -16,7 +16,7 @@ WEBDIR=/srv/www/htdocs/didoc
 PROJECT_ROOT=/home/jcarter/ditool/didoc
 
 # Where the DITOOL source code lives
-DITOOL="/cygdrive/c/TFS/Data Intelligence Tool/src/ditool/DEV"
+DITOOL="//USHEN048W/Public/Didoc"
 
 ##############################################################################
 # Default target (what happens when you just run:
