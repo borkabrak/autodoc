@@ -12,9 +12,8 @@
     <body>
         <div id='frame'>
             [% INCLUDE $header %]
-            [% INCLUDE $menubar %]
-            [% INCLUDE $menu %] 
-            <div class='text-container' id="content">
+            [% INCLUDE $nav %]
+            [% INCLUDE $content %]
             </div>
         </div>
     </body>
@@ -44,6 +43,7 @@
                 'homepage.html'));
         });
 
+        // Clicking the header takes you home
         $('header').on( 'click', function(event){
             location.href = '/didoc/';
         });
@@ -51,13 +51,11 @@
         $(menu).collapsible({
             symbolshow: "▶",
             symbolhide: "▼",
-            xoffset: -18,
-            yoffset: -4 
         });
 
-        $('nav>li>h4').click(function(event){
-            // Seems a little.. wonky to just pass the click on to what the
-            // library decided should be clickable..
+        // Clicking the menu name expands/collapses it (instead of insisting on
+        // targeting the little symbol)
+        $('nav li>p').click(function(event){
             $(event.currentTarget).prev('.jcollapsible').click();
         });
 

@@ -1,0 +1,7 @@
+<li id="function-menu">
+Functions
+<ul>
+[% FOREACH function IN jsdoc %]
+    <li><a href='[% function.name %].html'>[% function.name %]</a>
+[% END %]
+</ul>

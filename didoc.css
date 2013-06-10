@@ -8,14 +8,14 @@ h1, h2, h3, h4, h5, h6 {
     text-shadow: 0.1em 0.1em 0.2em #ccc;
 }
 
-a, a:visited {
+#content a, #content a:visited {
     margin:0.2em;
     padding:0.1em;
     color: #00f;
     -webkit-transition: all 0.15s ease-in-out;
 }
 
-a:hover {
+#content a:hover {
     border-radius: 0.3em;
     background-color: #ccc;
 }
@@ -50,19 +50,14 @@ header#top {
 
 #content {
     position:relative;
-    width: 50%;
     height: 100%;
     padding: 1em;
     background-color: #fff;
 }
 
 nav {
-    float: right;
-    font-size: 0.8em;
     border-width: 0.4em;
-    width: 20%;
     list-style-type: none;
-    padding: 1.8em;
     background-color: #666;
     color: white;
     border-radius: 1em;
@@ -73,8 +68,15 @@ nav a {
     color: whitesmoke;
 }
 
+/* Style the first-level menu items on the nav menu */
 nav ul {
     list-style-type: none;
+}
+
+nav>ul>li {
+    display: inline;
+    border-right: solid black 2px;
+    padding: 1em;
 }
 
 nav h2, nav h3, nav h4 {
@@ -88,21 +90,8 @@ nav h4:hover {
     background-color: #ccc;
 }
 
-.navbar {
-    background-color: #666;
-    border-color: #2b2b2b;
-    list-style-type: none;
-    padding: 1em;
-}
-
-.navbar li {
-    display: inline;
-    border-right: solid #000 1px;
-    padding: 1em;
-}
-
-.navbar a {
-    color:white;
+#function-menu {
+    float: right;
 }
 
 a.jcollapsible {

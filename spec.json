@@ -2,7 +2,8 @@
     "name"          : "DIDoc",
     "projectName"   : "DITool",
     "version"       : "Development Site",
-    "menu"          : "menu.html.tt",
     "header"        : "header.html.tt",
-    "menubar"        : "menubar.html.tt"
+    "nav"           : "nav.html.tt",
+    "function_menu" : "function-menu.html.tt",
+    "content"       : "content.html.tt"
 }
