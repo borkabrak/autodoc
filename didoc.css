@@ -57,7 +57,6 @@ header#top {
 
 nav {
     border-width: 0.4em;
-    list-style-type: none;
     background-color: #666;
     color: white;
     border-radius: 1em;
@@ -68,30 +67,49 @@ nav a {
     color: whitesmoke;
 }
 
-/* Style the first-level menu items on the nav menu */
 nav ul {
     list-style-type: none;
 }
 
+/* Items in navbar are in a horizontal row, separated by a vertical line */
 nav>ul>li {
     display: inline;
+    position:relative;
     border-right: solid black 2px;
     padding: 1em;
 }
 
-nav h2, nav h3, nav h4 {
-    border-radius: 0.5em;
-    padding: 0.3em;
-    -webkit-transition: all 0.15s ease-in-out;
+.dropdown-menu>ul {
+
+    /* Hide at first */
+    display:none;
+
+    /* Interesting positioning interplay going on here.. */
+    position: absolute;
+    left:0;
+    top: 3em;
+
+    background-color: #666;
     color: white;
+    border: solid black 0.2em;
+    border-radius: 1em;
+    padding: 1em;
+
+    /* This really does need to 'pop out' of the page */
+    z-index: 1;
 }
 
-nav h4:hover {
-    background-color: #ccc;
+.dropdown-menu:before {
+    content: "\25b6";
 }
 
-#function-menu {
-    float: right;
+.dropdown-menu:hover:before {
+    content: "\25bc";
+}
+
+/* Show menu on hover */
+.dropdown-menu:hover>ul {
+    display: block;
 }
 
 a.jcollapsible {

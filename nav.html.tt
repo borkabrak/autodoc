@@ -2,7 +2,6 @@
     <ul>
         <li><a href='homepage.html'>Home</a>
         <li><a href='README.html'>HELP/HOWTO</a>
-        <li id="seperator">
         [% INCLUDE $function_menu %]
     </ul>
 </nav>

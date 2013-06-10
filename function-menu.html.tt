@@ -1,7 +1,8 @@
-<li id="function-menu">
+<li id="function-menu" class="dropdown-menu">
 Functions
-<ul>
-[% FOREACH function IN jsdoc %]
-    <li><a href='[% function.name %].html'>[% function.name %]</a>
-[% END %]
-</ul>
+    <ul>
+    [% FOREACH function IN jsdoc %]
+        <li><a href='[% function.name %].html'>[% function.name %]</a>
+    [% END %]
+    </ul>
+</li>

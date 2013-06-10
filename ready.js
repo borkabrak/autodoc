@@ -26,16 +26,4 @@ $(function(){
     $('header').on( 'click', function(event){
         location.href = '/didoc/';
     });
-
-    $(menu).collapsible({
-        symbolshow: "▶",
-        symbolhide: "▼",
-    });
-
-    // Clicking the menu name expands/collapses it (instead of insisting on
-    // targeting the little symbol)
-    $('nav li>p').click(function(event){
-        $(event.currentTarget).prev('.jcollapsible').click();
-    });
-
 });
