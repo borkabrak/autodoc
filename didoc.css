@@ -56,6 +56,7 @@ header#top {
 }
 
 nav {
+    margin: 1em;
     border-width: 0.4em;
     background-color: #666;
     color: white;
@@ -92,9 +93,8 @@ nav>ul>li {
     background-color: #666;
     color: white;
     border: solid black 0.2em;
-    border-radius: 1em;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+    border-bottom-right-radius: 1em;
+    border-bottom-left-radius: 1em;
     padding: 1em;
 
     /* This really does need to 'pop out' of the page */
