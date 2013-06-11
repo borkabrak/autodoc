@@ -47,11 +47,12 @@ convert-to-html:
 	$(PROJECT_ROOT)/bin/markdown2html *.markdown
 	
 make-index:
-	$(PROJECT_ROOT)/bin/ttk index.html.tt -d analysis.json
+	$(PROJECT_ROOT)/bin/ttk index.erb.tt -d analysis.json
 
 publish:
 	# Publish the files to the web dir
 	cp $(PROJECT_ROOT)/*.html $(WEBDIR)/
+	cp $(PROJECT_ROOT)/*.erb $(WEBDIR)/
 	cp $(PROJECT_ROOT)/*.css $(WEBDIR)/
 	cp $(PROJECT_ROOT)/*.js $(WEBDIR)/
 	cp $(PROJECT_ROOT)/*.png $(WEBDIR)/
@@ -69,10 +70,12 @@ clean:
 	# Remove converted files
 	rm -f $(PROJECT_ROOT)/*.markdown
 	rm -f $(PROJECT_ROOT)/*.html
+	rm -f $(PROJECT_ROOT)/*.erb
 	
 purge: clean
 	# Remove all published files
 	rm -f $(WEBDIR)/*.html
+	rm -f $(WEBDIR)/*.erb
 	rm -f $(WEBDIR)/*.css
 	rm -f $(WEBDIR)/*.js
 	rm -f $(WEBDIR)/*.png

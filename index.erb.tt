@@ -16,6 +16,7 @@
             [% INCLUDE $content %]
             </div>
         </div>
+        <a href="/index.erb">index.erb</a>
     </body>
     <script type="text/javascript" src="ready.js"></script>
 </html>

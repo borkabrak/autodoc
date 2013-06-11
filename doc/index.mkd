@@ -1,9 +1,0 @@
-## Recommended Topics
-
-------------------------------------------------------------------------------
-[Understanding the coordinate system](understanding_the_coordinate_system.html)
-
-[Building Controls](BuildingControls.html)
-
-[Open Questions](open_questions.html)
-
