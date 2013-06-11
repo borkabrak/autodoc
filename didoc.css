@@ -104,6 +104,21 @@ nav>ul>li {
     -webkit-transition: all 0.15s ease-in-out;
 }
 
+.dropdown-menu>ul>li {
+    -webkit-transition: all 0.15s ease-in-out;
+    padding: 0.20em;
+    border-radius: 0.25em;
+}
+
+.dropdown-menu>ul>li:hover {
+    background-color: white;
+    color: black;
+}
+
+.dropdown-menu>ul>li:hover a {
+    color: black;
+}
+
 .dropdown-menu:hover {
     background-color: white;
     color: black;
