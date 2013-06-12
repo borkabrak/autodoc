@@ -18,7 +18,7 @@ $(function(){
             var url = event.currentTarget.pathname;
             didoc.fetch(url);
             
-            history.pushState(null, null, url.replace(/didoc\/(.*)/, "didoc/index.erb?page=$1"));
+            history.pushState(null, null, url.replace(/didoc\/(.*)/, "didoc/index.html?page=$1"));
 
             event.preventDefault();
     });
