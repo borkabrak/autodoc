@@ -3,7 +3,7 @@ var Didoc = function(elem){
 
     my.elem = $(elem);  // Content container
 
-    my.go = function(url, success){
+    my.fetch = function(url, success){
 
         $.ajax({ url: url,
 
