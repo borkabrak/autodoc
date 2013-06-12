@@ -13,7 +13,6 @@
             [% INCLUDE $header %]
             [% INCLUDE $nav %]
             [% INCLUDE $content %]
-            </div>
         </div>
     </body>
     <script type="text/javascript" src="ready.js"></script>
