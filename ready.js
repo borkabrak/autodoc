@@ -1,6 +1,6 @@
 $(function(){
 
-    didoc = new Didoc($("#content"));
+    var didoc = new Didoc($("#content"));
     var menu = $("nav");
 
     function current_page(){
