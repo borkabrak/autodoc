@@ -20,10 +20,12 @@ var Didoc = function(elem){
     // private
     var change_to = function(data){
         // Manage content transistion
+        $("#throbber").toggleClass("loading");
         my.elem.fadeOut(
             0,
             function(){
                 my.elem.html(data);
+                $("#throbber").toggleClass("loading");
                 my.elem.fadeIn();
             }
         );

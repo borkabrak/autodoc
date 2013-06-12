@@ -3,5 +3,6 @@
         <li><a href='homepage.html'>Home</a>
         <li><a href='README.html'>HELP/HOWTO</a>
         [% INCLUDE $function_menu %]
+        <li id="throbber">
     </ul>
 </nav>
