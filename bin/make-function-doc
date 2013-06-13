@@ -20,9 +20,12 @@ spec["jsdoc"].each do |func|
 ==============================================================================
 ------------------------------------------------------------------------------
 
-    #{func['signature']}
+#{func['signature']}
 
 EOF
+
+func["tags"].each { |name,value| out += "#{name}: #{value}<br />\n" }
+
 
     File.write("doc/#{func["name"]}.mkd",out)
 end
