@@ -48,9 +48,13 @@ class JSDoc
     end
 
     def tags(jsdoc_block)
+        # Return a hash where keys are jsdoc tag labels, and values are the rest of the line.
+        thash = {};
         jsdoc_block.scan(/(@.*?\n)/).flatten.map { |tag|
-            (_, name, value) = %r{@(.*):\s*(.*)\s*\r}.match(tag).to_a[2]
+            _, name, value = %r{@(\w*)\W*(.*)\s*\r}.match(tag).to_a
+            thash[name] = value
         }
+        return thash
         
     end
 
