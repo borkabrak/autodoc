@@ -21,12 +21,14 @@ var Didoc = function(elem){
     var change_to = function(data){
         // Manage content transistion
         $("#throbber").toggleClass("loading");
+        
         my.elem.fadeOut(
             0,
             function(){
+                interval = setTimeout(function(){
                 my.elem.html(data);
-                $("#throbber").toggleClass("loading");
-                my.elem.fadeIn();
+                my.elem.fadeIn(function(){ $("#throbber").toggleClass("loading"); });
+                });
             }
         );
     };
