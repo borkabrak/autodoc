@@ -24,7 +24,7 @@ spec["jsdoc"].each do |func|
 
 EOF
 
-func["tags"].each { |name,value| out += "#{name}: #{value}<br />\n" }
+    func["tags"].each { |name,value| out += "\n  * #{name}: #{value}\n" }
 
 
     File.write("doc/#{func["name"]}.mkd",out)
