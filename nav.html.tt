@@ -1,7 +1,7 @@
 <nav>
     <ul>
         <li><a href='homepage.html'>Home</a>
-        <li><a href='README.html'>HELP/HOWTO</a>
+        <li><a href='howto.html'>Howto</a>
         [% INCLUDE $function_menu %]
         <li id="throbber">
     </ul>

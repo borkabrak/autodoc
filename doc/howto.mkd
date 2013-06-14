@@ -1,0 +1,59 @@
+[%#
+  # COMMENTS FOR TEMPLATE TOOLKIT
+  # Switch the TTK tags to something else for this page, so we can talk
+  # about them *on* this page.  
+%] 
+[% TAGS [- -] %]
+
+How to write documentation
+==========================
+
+Just edit or create .mkd files in `\\USHEN048W\Public\didoc`. 
+
+Changes are deployed to the website automatically.
+
+Straight html will work fine.  You also have the option of two technologies to
+assist you:
+
+* Markdown 
+* Template Toolkit (TTK).
+
+How to use both of these is pretty obvious and they can be more or less
+ignored entirely if you like.
+
+------------------------------------------------------------------------------
+
+Markdown
+========
+
+Markdown is a text-only format that's meant to be easy for humans to read and
+write, and also easy for computers to convert into HTML.  It's based on things
+people already do such as using asterisks for emphasis, empty lines to denote
+paragraphs, and other such things.  In short, Markdown is markup that *looks*
+like regular ol' text.
+
+[More about Markdown](http://daringfireball.net/projects/markdown/)
+
+[Markdown syntax](http://daringfireball.net/projects/markdown/syntax)
+
+------------------------------------------------------------------------------
+
+Template Toolkit
+================
+
+Template Toolkit (TTK) is a way to get variable data into the pages.  TTK also
+includes a pretty full-featured set of directives such as control structures
+and file inclusion.  The notation looks like:
+
+    We have [% pagecount %] pages.
+
+The available data come from two different places:
+
+* Some are automatically generated, such as a list of pages or code elements.
+* A spec file can be edited to add any other data we need that we
+  don't need to auto-generate, such as the name or current location of the
+  [- project -] project.
+
+[More about Template Toolkit](http://www.template-toolkit.org/docs/manual/Intro.html)
+
+[TTK Syntax](http://www.template-toolkit.org/docs/manual/Syntax.html)
