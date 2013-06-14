@@ -36,7 +36,7 @@ class JSDoc
         # Okay, this one got out of hand..
         return sig[( 
             sig =~ /=/ ?  
-            %r{(\S+)\s*=\s*function} 
+            %r{\.([^\s\.]+)\s*=\s*function} 
             : 
             %r{function\s*(\S+)\s*\(}
             ),1
