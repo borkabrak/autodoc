@@ -12,13 +12,25 @@ if (ARGV.length < 1) then
     exit
 end
 
-puts "JSDoc scanning on #{specfile}.."
-
+puts "Reading JSDOC.."
 spec = JSON.parse(File.read(specfile))
+jsdoc = spec['jsdoc'].nil? ? {} : spec['jsdoc']
 
-sourcecode = File.read(ARGV[0]) or (abort("Can't open #{ARGV[0]}"))
+ARGV.each do |file|
 
-spec[:jsdoc] = JSDoc.new(sourcecode).spec
+    begin
+        sourcecode = File.read(file) 
+        puts "Scanning #{file}.."
+    rescue 
+        puts $!
+        exit
+    end
+
+    jsdoc[File.basename(file)] = JSDoc.new(sourcecode).spec
+
+end
+
+spec['jsdoc'] = jsdoc
 
 File.write(specfile, "#{JSON.pretty_generate(spec)}\n")
 puts "Spec written to #{specfile}."

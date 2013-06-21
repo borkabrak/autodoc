@@ -1,8 +1,12 @@
 <li id="function-menu" class="dropdown-menu">
-Functions
+JS Functions
     <ul>
-    [% FOREACH function IN jsdoc %]
-        <li><a href='[% function.name %].html'>[% function.name %]</a>
+
+    [% FOREACH file IN jsdoc %]
+
+        <li><a href='[% file.key %].html'>[% file.key %]</a>
+
     [% END %]
+
     </ul>
 </li>

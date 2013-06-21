@@ -19,23 +19,21 @@ PROJECT_ROOT=/home/jcarter/ditool/didoc
 DITOOL="//USHEN048W/Public/Didoc"
 
 ##############################################################################
-# Default target (what happens when you just run:
+# 'all' is the default target -- what happens when you just run:
 #    $ make
 
-
 all: build publish clean
-
 
 ##############################################################################
 
 build: analyze-kaml make-function-doc process-templates convert-to-html make-index
 
 analyze-kaml: 
-	# [KAML elements] => [spec data]
-	$(PROJECT_ROOT)/bin/make_spec $(DITOOL)/api.js
+	# Gather information about KAML markup.
+	$(PROJECT_ROOT)/bin/make_spec $(DITOOL)/api.js 
 
 make-function-doc: analyze-jsdoc
-	# Make a page for each API function
+	# Make the function documentation from the jsdoc data
 	$(PROJECT_ROOT)/bin/make-function-doc
 
 process-templates: cd-here
@@ -47,20 +45,20 @@ convert-to-html:
 	$(PROJECT_ROOT)/bin/markdown2html *.markdown
 	
 make-index:
+	# Make the application's index page.
 	$(PROJECT_ROOT)/bin/ttk index.html.tt -d analysis.json
 
 publish:
-	# Publish the files to the web dir
+	# Publish the appropriate files to the web dir
 	cp $(PROJECT_ROOT)/*.html $(WEBDIR)/
 	cp $(PROJECT_ROOT)/*.css $(WEBDIR)/
 	cp $(PROJECT_ROOT)/*.js $(WEBDIR)/
 	cp $(PROJECT_ROOT)/*.png $(WEBDIR)/
 
-
 ##############################################################################
 analyze-jsdoc: 
 	# [JSDoc comments] => [spec data]
-	$(PROJECT_ROOT)/bin/jsdoc2json $(DITOOL)/api.js
+	$(PROJECT_ROOT)/bin/jsdoc2json $(DITOOL)/api.js 
 
 sloppy: build publish
 	# Publish, but leave converted files in doc directory

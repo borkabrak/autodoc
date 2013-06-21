@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 #
-#   Create a *.mkd file for each API function in the jsdoc part of the analysis
+#   Create *.mkd files for the jsdoc'd API functions.
 
-# Read jsdoc info from the spec
+# Read the spec
 require 'json'
 require_relative 'jsdoc'
 
@@ -12,22 +12,30 @@ specfile = "analysis.json"
 
 spec = JSON.parse(File.read(specfile))
 
-# For each function listed:
-spec["jsdoc"].each do |func|
-    puts "#{func['name']}.."
-    out = <<-EOF
+# For each file containing jsdoc..
+spec["jsdoc"].keys.each do |file|
+    filename = "#{file}.mkd"
+    puts "File: '#{filename}'.."
+    out = ""
+
+    # For each function listed:
+    spec["jsdoc"][file].each do |func|
+        puts "Function '#{func['name']}'.."
+
+        out += %{
 #{func['name']}
 ==============================================================================
 ------------------------------------------------------------------------------
 
 #{func['signature']}
+}
 
-EOF
+        func["tags"].each { |name,value| out += "\n  * #{name}: #{value}\n" }
 
-    func["tags"].each { |name,value| out += "\n  * #{name}: #{value}\n" }
+    end
 
+    File.write("doc/#{filename}",out)
 
-    File.write("doc/#{func["name"]}.mkd",out)
 end
 
 puts "API docs created."
