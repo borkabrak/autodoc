@@ -4,6 +4,7 @@
 
 # Read the spec
 require 'json'
+require 'erb'
 require_relative 'jsdoc'
 
 puts "Auto-generating doc for API functions.."
@@ -21,17 +22,7 @@ spec["jsdoc"].keys.each do |file|
     # For each function listed:
     spec["jsdoc"][file].each do |func|
         puts "Function '#{func['name']}'.."
-
-        out += %{
-#{func['name']}
-==============================================================================
-------------------------------------------------------------------------------
-
-#{func['signature']}
-}
-
-        func["tags"].each { |name,value| out += "\n  * #{name}: #{value}\n" }
-
+        out += ERB.new(File.read("function-doc.erb")).result(binding)
     end
 
     File.write("doc/#{filename}",out)

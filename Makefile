@@ -2,12 +2,18 @@
 #
 # Build and deploy the ditool documentation site
 #
-#   Make should remain idempotent (i.e., it never hurts to run it)
+#   'make all' should remain idempotent (i.e., running it twice is always the same as
+#   running it once. In other words, it never hurts to run it.)
+#
 #   This means: 
 #       - it never changes human-composed doc files (.mkd)
 #       - When it cleans up, it removes ONLY FILES THAT IT CREATED
 #
 ##############################################################################
+
+############
+## CONFIG ##
+############
 
 # Where the website lives
 WEBDIR=/srv/www/htdocs/didoc
@@ -16,7 +22,12 @@ WEBDIR=/srv/www/htdocs/didoc
 PROJECT_ROOT=/home/jcarter/ditool/didoc
 
 # Where the DITOOL source code lives
-DITOOL="//USHEN048W/Public/Didoc"
+#DITOOL="//USHEN048W/Public/Didoc"
+DITOOL=$(PROJECT_ROOT)/doc/alt
+
+#######################
+## TARGETS (Recipes) ##
+#######################
 
 ##############################################################################
 # 'all' is the default target -- what happens when you just run:
@@ -55,7 +66,13 @@ publish:
 	cp $(PROJECT_ROOT)/*.js $(WEBDIR)/
 	cp $(PROJECT_ROOT)/*.png $(WEBDIR)/
 
+clean:
+	# Remove converted files
+	rm -f $(PROJECT_ROOT)/*.markdown
+	rm -f $(PROJECT_ROOT)/*.html
+
 ##############################################################################
+
 analyze-jsdoc: 
 	# [JSDoc comments] => [spec data]
 	$(PROJECT_ROOT)/bin/jsdoc2json $(DITOOL)/api.js 
@@ -63,11 +80,6 @@ analyze-jsdoc:
 sloppy: build publish
 	# Publish, but leave converted files in doc directory
 
-clean:
-	# Remove converted files
-	rm -f $(PROJECT_ROOT)/*.markdown
-	rm -f $(PROJECT_ROOT)/*.html
-	
 purge: clean
 	# Remove all published files
 	rm -f $(WEBDIR)/*.html
