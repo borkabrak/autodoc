@@ -1,13 +1,14 @@
-<%= func['name'] %>
+<article class="function">
+<%=ERB::Util::h func['name'] %>
 ==============================================================================
+
 ------------------------------------------------------------------------------
 
-Arguments:
-<% func['args'].each do |arg| %>
-* <%= arg %>
-<% end %>
-<%= func['signature'] %>
-
+<%=ERB::Util::h func['signature'] %>
 <% func["tags"].each do |name,value| %>
-* <%= name %>: <%= value %> 
+* <%=ERB::Util::h name %>: <%=ERB::Util::h value %>
 <% end %>
+
+<%=ERB::Util::h func['comment_text'] %>
+
+</article>

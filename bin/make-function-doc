@@ -25,7 +25,7 @@ spec["jsdoc"].keys.each do |file|
         out += ERB.new(File.read("function-doc.erb")).result(binding)
     end
 
-    File.write("doc/#{filename}",out)
+    File.write("doc/#{filename}", out)
 
 end
 

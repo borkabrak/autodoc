@@ -18,7 +18,8 @@ class JSDoc
                 :signature => function_signature(block),
                 :name => name(function_signature(block)),
                 :args => args(function_signature(block)),
-                :tags => tags(comment_block(block))
+                :tags => tags(comment_block(block)),
+                :comment_text => comment_text(comment_block(block))
             }
 
         }
@@ -56,6 +57,13 @@ class JSDoc
         }
         return thash
         
+    end
+
+    def comment_text(jsdoc_block)
+        # Return all the comment text that is NOT part of a jsdoc tag.
+        jsdoc_block[%r{/\*\*(.*)\*/}m]
+        # TODO: Make this strip tags out
+        return $1.scan(/^\s*([^\@].*)$/s).join
     end
 
 end

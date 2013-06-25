@@ -33,6 +33,10 @@ header#top {
     cursor: pointer;
 }
 
+article.function {
+    margin-bottom: 3em;
+}
+
 .text-container {
     background-color: #fff;
     border: solid #000 0.2em;

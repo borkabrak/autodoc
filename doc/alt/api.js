@@ -1558,7 +1558,11 @@ API.prototype.tagToolDashboard = function (elem, report) {
 };
 
 /**
-    elem: a <di_report> element.
+    @elem: a <di_report> element.
+
+    @purpose: God only knows.
+
+    This function probably translates Swahili into Cylon.  I don't know.
     
 */
 API.prototype.tagToolReport = function (elem) {
