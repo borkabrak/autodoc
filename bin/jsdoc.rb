@@ -62,7 +62,9 @@ class JSDoc
     def comment_text(jsdoc_block)
         # Return all the comment text that is NOT part of a jsdoc tag.
         jsdoc_block[%r{/\*\*(.*)\*/}m]
-        return $1.scan(/^\s*([^@]+*)$/s).join
+        text = $1.scan(/^\s*([^@]+*)$/s).join
+        text.gsub!(/^\s*/,""); #Remove line-beginning whitespace
+        return text
     end
 
 end
